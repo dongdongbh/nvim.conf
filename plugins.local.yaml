@@ -1,0 +1,11 @@
+- repo: airblade/vim-gitgutter
+- repo: itchyny/lightline.vim
+- repo: preservim/nerdtree
+- repo: tpope/vim-abolish
+- repo: tpope/vim-commentary
+- repo: michaeljsmith/vim-indent-object
+- repo: tpope/vim-surround
+- repo: justinmk/vim-sneak
+- repo: godlygeek/tabular
+- repo: preservim/vim-markdown
+- repo: ryanoasis/vim-devicons

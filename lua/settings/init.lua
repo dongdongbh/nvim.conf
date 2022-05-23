@@ -34,5 +34,5 @@ set.spell=true                 -- enable spell check (may need to download langu
 -- set.swapfile-false            -- disable creating swap file
 -- set.backupdir=~/.cache/vim   --" Directory to store backup files.
 
-set.guifont = { "Hack", "h12" }
+set.guifont = { "Hack Regular Nerd Font Complete Mono", "h12" }
 

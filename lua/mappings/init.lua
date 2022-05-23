@@ -24,6 +24,9 @@ map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 map('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 map('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 
+-- split map
+map('n', '<leader>v', ':vsplit<CR>', opts)
+map('n', '<leader>s', ':split<CR>', opts)
 
 -- move split panes to left/bottom/top/right
 map('n', '<A-h>', '<C-W>H', opts)
@@ -40,15 +43,15 @@ map('n', '<C-l>', '<C-w>l', opts)
 
 -- Press i to enter insert mode, and ii to exit insert mode.
 map('i', 'ii', '<Esc>', opts)
+map('i', 'jk', '<Esc>', opts)
+map('i', 'kj', '<Esc>', opts)
 
 
 -- remove search highlighting
 -- use double-Esc to completely clear the search buffer
 map('n', '<Esc><Esc>', ':let @/ = ""<CR>', opts)
--- use space to retain the search buffer and toggle highlighting off/on
-map('n', '<Space>', ':set hlsearch!<CR>', opts)
 -- Clear last search highlighting
-map('n', '<Space>', ':noh<cr>', opts)
+map('n', '<Leader><CR>', ':noh<cr>', opts)
 
 
 

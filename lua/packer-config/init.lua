@@ -1,18 +1,31 @@
 return require'packer'.startup(function()
     use 'wbthomason/packer.nvim'
 
-    use 'morhetz/gruvbox'               --theme
-    use 'kyazdani42/nvim-web-devicons' --support icons
-    use 'kyazdani42/nvim-tree.lua'      -- file explore
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }  --highlights
-    
-    use 'nvim-lualine/lualine.nvim'   -- statusline
-    use 'preservim/nerdcommenter' -- comment
-    use 'tpope/vim-surround'   -- surround
-    use 'justinmk/vim-sneak'   -- search with three letters
-    use 'rhysd/vim-grammarous' -- grammar check
-    use {'jose-elias-alvarez/null-ls.nvim'} --formatting
-
+    use 'morhetz/gruvbox'                                               --theme
+    use 'kyazdani42/nvim-web-devicons'                                  --support icons
+    use 'kyazdani42/nvim-tree.lua'                                      -- file explore
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }        --highlights
+    use 'nvim-lualine/lualine.nvim'                                     -- statusline
+    use 'preservim/nerdcommenter'                                       -- comment
+    use 'tpope/vim-surround'                                            -- surround
+    use 'justinmk/vim-sneak'                                            -- search with three letters
+    use 'rhysd/vim-grammarous'                                          -- grammar check
+    use {'jose-elias-alvarez/null-ls.nvim'}                             --formatting
+    use "lukas-reineke/indent-blankline.nvim"                           -- adds indentation guides to all lines
+    -- which-key
+    use {
+          "folke/which-key.nvim",
+          config = function()
+            require("which-key").setup {
+              -- your configuration comes here
+              -- or leave it empty to use the default settings
+              -- refer to the configuration section below
+            }
+          end
+    }
+    use {'windwp/nvim-autopairs',                                       -- auto pair () {} [] "" etc.
+        require('nvim-autopairs').setup{}
+    }
     -- git 
     use {
       'lewis6991/gitsigns.nvim',
@@ -22,6 +35,7 @@ return require'packer'.startup(function()
     }
     -- LSP
     use 'neovim/nvim-lspconfig'
+    use 'williamboman/nvim-lsp-installer'
 
     -- Autocomplete
     use {

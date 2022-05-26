@@ -26,6 +26,11 @@ map("n", "<Down>", "<NOP>", opts)
 map("n", "<Left>", "<NOP>", opts)
 map("n", "<Right>", "<NOP>", opts)
 
+map("v", "<Up>", "<NOP>", opts)
+map("v", "<Down>", "<NOP>", opts)
+map("v", "<Left>", "<NOP>", opts)
+map("v", "<Right>", "<NOP>", opts)
+
 -- Resize with arrows
 map("n", "<C-Up>", ":resize +2<CR>", opts)
 map("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -77,6 +82,16 @@ map("n", "<Leader><CR>", ":noh<cr>", opts)
 
 -- paste cover without re-yank
 --map("v", "p", '"_dP', opts)
+map("n", "<Leader>r", ":reg<cr>", opts)
+
+local opts_remap = { noremap = false, silent = true }
+--surround word under cursor by using surrund plugin
+map("n", "<Leader>`", "ysiw`", opts_remap)
+map("n", "<Leader>'", "ysiw'", opts_remap)
+map("n", '<Leader>"', 'ysiw"', opts_remap)
+map("n", "<Leader>(", "ysiw(", opts_remap)
+map("n", "<Leader>[", "ysiw[", opts_remap)
+map("n", "<Leader>{", "ysiw{", opts_remap)
 
 -- Set a key-mapping for copy and pasting to the system clipboard
 map("v", "<Leader>y", '"+y', opts)

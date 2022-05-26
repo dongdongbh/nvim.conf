@@ -25,10 +25,12 @@ return packer.startup(function()
 	use("wbthomason/packer.nvim") -- All the lua functions I don't want to write twice
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+	use("tpope/vim-repeat") -- make plugin command repeatable
 
 	use("morhetz/gruvbox") --theme
 	use("kyazdani42/nvim-web-devicons") --support icons
 	use("kyazdani42/nvim-tree.lua") -- file explore
+	use("vifm/vifm.vim")
 	use("voldikss/vim-floaterm") -- float terminal
 	use("rcarriga/nvim-notify") -- nice looking notify
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --highlights

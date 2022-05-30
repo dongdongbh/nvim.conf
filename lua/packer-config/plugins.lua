@@ -22,28 +22,63 @@ packer.init({
 })
 
 return packer.startup(function()
-	use("wbthomason/packer.nvim") -- All the lua functions I don't want to write twice
-	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("tpope/vim-repeat") -- make plugin command repeatable
+	use("wbthomason/packer.nvim")
 
-	use("morhetz/gruvbox") --theme
-	use("kyazdani42/nvim-web-devicons") --support icons
-	use("kyazdani42/nvim-tree.lua") -- file explore
+	-- ui related -----------------------------------------------------------
+	-- fast search anything, files, buffers, themes, etcs.
+	--theme
+	use("morhetz/gruvbox")
+	--support icons
+	use("kyazdani42/nvim-web-devicons")
+	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
+	use({
+		"windwp/nvim-autopairs", -- auto pair () {} [] "" etc.
+		require("nvim-autopairs").setup({}),
+	})
+	-- adds indentation guides to all lines
+	use("lukas-reineke/indent-blankline.nvim")
+	-- tab bar
+	use("romgrk/barbar.nvim")
+	-- statusline
+	use("nvim-lualine/lualine.nvim")
+	-- support vifm file manager
 	use("vifm/vifm.vim")
-	use("voldikss/vim-floaterm") -- float terminal
-	use("rcarriga/nvim-notify") -- nice looking notify
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) --highlights
-	use("nvim-lualine/lualine.nvim") -- statusline
-	use("romgrk/barbar.nvim") -- tab bar
-	use("preservim/nerdcommenter") -- comment
-	use("tpope/vim-surround") -- surround
-	use("justinmk/vim-sneak") -- search with three letters
-	use("tpope/vim-abolish") -- abolish hard to explain
-	use("rhysd/vim-grammarous") -- grammar check
-	use({ "jose-elias-alvarez/null-ls.nvim" }) --formatting
-	use("lukas-reineke/indent-blankline.nvim") -- adds indentation guides to all lines
+	-- file explore
+	use("kyazdani42/nvim-tree.lua")
+	-- nice looking notify
+	use("rcarriga/nvim-notify")
+	-- startup menu
+	use("mhinz/vim-startify")
+	-- shortcut work with tmux
+	use("christoomey/vim-tmux-navigator")
+
+	-- editing related -----------------------------------------------------------
+	-- All the lua functions I don't want to write twice
+	use("nvim-lua/plenary.nvim")
+	-- make plugin command repeatable
+	use("tpope/vim-repeat")
+	-- comment
+	use("preservim/nerdcommenter")
+	-- surround
+	use("tpope/vim-surround")
+	-- search with three letters
+	use("justinmk/vim-sneak")
+	-- abolish hard to explain
+	use("tpope/vim-abolish")
+	--formatting
+	use({ "jose-elias-alvarez/null-ls.nvim" })
+	-- grammar check
+	use("rhysd/vim-grammarous")
+	--highlights
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+
+	-- git tools -----------------------------------------------------------
+	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+
+	-- other tools -----------------------------------------------------------
 	-- which-key
+	use("voldikss/vim-floaterm") -- float terminal
 	use({
 		"folke/which-key.nvim",
 		config = function()
@@ -55,10 +90,6 @@ return packer.startup(function()
 		end,
 	})
 
-	use({
-		"windwp/nvim-autopairs", -- auto pair () {} [] "" etc.
-		require("nvim-autopairs").setup({}),
-	})
 	-- show git change sign in left
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -71,20 +102,39 @@ return packer.startup(function()
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
 
-	---- Autocomplete
+	---- Autocomplete -------------------------------------------------------
 	---- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lua") -- cmo for nvim lua configs
-	use("hrsh7th/cmp-nvim-lsp") -- support completion from lsp
+	-- buffer completions
+	use("hrsh7th/cmp-buffer")
+	-- path completions
+	use("hrsh7th/cmp-path")
+	-- cmdline completions
+	use("hrsh7th/cmp-cmdline")
+	-- snippet completions
+	use("saadparwaiz1/cmp_luasnip")
+	-- cmo for nvim lua configs
+	use("hrsh7th/cmp-nvim-lua")
+	-- support completion from lsp
+	use("hrsh7th/cmp-nvim-lsp")
 
 	---- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
+	--snippet engine
+	use("L3MON4D3/LuaSnip")
+	-- a bunch of snippets to use
+	use("rafamadriz/friendly-snippets")
+
+	-- markdown preview
+	-- install without yarn or npm
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 	-- lsp with zero efforts
 	--use {
 	--'VonHeikemen/lsp-zero.nvim',
@@ -106,7 +156,4 @@ return packer.startup(function()
 	--{'rafamadriz/friendly-snippets'},
 	--}
 	--}
-
-	-- fast search anything, files, buffers, themes, etcs.
-	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
 end)

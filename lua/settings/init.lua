@@ -39,3 +39,12 @@ set.spell = true -- enable spell check (may need to download language package)
 set.guifont = { "Hack Regular Nerd Font Complete Mono", "h12" }
 
 --vim.cmd([[set iskeyword+=-]])
+
+-- vim script commands--------------------------------------------
+-- start file with cursor stay last close
+vim.cmd([[
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+]])

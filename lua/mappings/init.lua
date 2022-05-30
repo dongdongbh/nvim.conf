@@ -184,3 +184,24 @@ wk.register({
 		["1"] = "which_key_ignore", -- special label to hide it in the popup
 	},
 }, { prefix = "<leader>" })
+
+-- neogit mapping
+wk.register({
+	g = {
+		name = "git", -- optional group name
+		g = { "<cmd>Neogit<cr>", "Open Neogit" }, -- create a binding with label
+		d = { "<cmd>DiffviewOpen<cr>", "Open diffview" }, -- live grep search a string
+		q = { "<cmd>DiffviewClose<cr>", "Open diffview" }, -- live grep search a string
+		l = { "<cmd>Neogit log<cr>", "Open git log" }, -- buffers
+		p = { "<cmd>Neogit push<cr>", "git push" }, -- Lists available help tags
+		v = { "<cmd>Neogit kind=vsplit<cr>", "Open Neogit in vpslit", noremap = false }, -- additional options for creating the keymap
+	},
+}, { prefix = "<leader>" })
+
+-- markdown
+map("n", "<C-s>", ":MarkdownPreview<cr>", opts_remap)
+map("n", "<A-s>", ":MarkdownPreviewStop<cr>", opts_remap)
+
+-- stop cmp in current buffer in insert mode
+map("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
+map("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)

@@ -25,16 +25,12 @@ return packer.startup(function()
 	use("wbthomason/packer.nvim")
 
 	-- ui related -----------------------------------------------------------
-	-- fast search anything, files, buffers, themes, etcs.
 	--theme
 	use("morhetz/gruvbox")
 	--support icons
 	use("kyazdani42/nvim-web-devicons")
+	-- fast search anything, files, buffers, themes, etcs.
 	use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
-	use({
-		"windwp/nvim-autopairs", -- auto pair () {} [] "" etc.
-		require("nvim-autopairs").setup({}),
-	})
 	-- adds indentation guides to all lines
 	use("lukas-reineke/indent-blankline.nvim")
 	-- tab bar
@@ -51,10 +47,20 @@ return packer.startup(function()
 	use("mhinz/vim-startify")
 	-- shortcut work with tmux
 	use("christoomey/vim-tmux-navigator")
+	-- float terminal
+	use("voldikss/vim-floaterm")
 
 	-- editing related -----------------------------------------------------------
 	-- All the lua functions I don't want to write twice
 	use("nvim-lua/plenary.nvim")
+	-- auto pair
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup()
+		end,
+	})
+
 	-- make plugin command repeatable
 	use("tpope/vim-repeat")
 	-- comment
@@ -72,13 +78,17 @@ return packer.startup(function()
 	--highlights
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
+	-- language related tools -----------------------------------------------------------
+	use("fatih/vim-go")
+
 	-- git tools -----------------------------------------------------------
 	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- other tools -----------------------------------------------------------
+	-- wakatime work time monitor
+	use("wakatime/vim-wakatime")
 	-- which-key
-	use("voldikss/vim-floaterm") -- float terminal
 	use({
 		"folke/which-key.nvim",
 		config = function()

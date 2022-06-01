@@ -45,6 +45,13 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
+-- Visual Block --
+-- Move text up and down
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
+map("x", "K", ":move '<-2<CR>gv-gv", opts)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
 -- split map
 map("n", "<leader>v", ":vsplit<CR>", opts)
 map("n", "<leader>s", ":split<CR>", opts)
@@ -99,15 +106,15 @@ map("n", "<Leader>p", '"+p', opts)
 
 -- Set key-mapping for dealing with two alphabetical registers easily
 -- Two does the work for me, you can set more
-
 map("v", "<Leader>a", '"ay', opts)
 map("v", "<Leader>A", '"Ay', opts)
-map("n", "<Leader>a", '"ap', opts)
-map("n", "<Leader>0", '"0p', opts)
-
 map("v", "<Leader>x", '"xy', opts)
 map("v", "<Leader>X", '"Xy', opts)
+
+map("n", "<Leader>a", '"ap', opts)
+map("n", "<Leader>0", '"0p', opts)
 map("n", "<Leader>x", '"xp', opts)
+
 -- change the word under cursor in down or up direction
 map("n", "c*", "*''cgn", opts)
 map("n", "c#", "#''cgN", opts)
@@ -151,16 +158,6 @@ map("v", ">", ">gv", opts)
 -- Reformat whole file
 map("n", "g=", "gg=G''", opts)
 
--- command mode
-map("c", "<C-A>", "<Home>", opts)
-
--- Visual Block --
--- Move text up and down
-map("x", "J", ":move '>+1<CR>gv-gv", opts)
-map("x", "K", ":move '<-2<CR>gv-gv", opts)
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
 -- floaterm keymap
 vim.g.floaterm_keymap_new = "<F7>"
 vim.g.floaterm_keymap_prev = "<F8>"
@@ -198,10 +195,10 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
--- markdown
+-- markdown preview
 map("n", "<C-s>", ":MarkdownPreview<cr>", opts_remap)
 map("n", "<A-s>", ":MarkdownPreviewStop<cr>", opts_remap)
 
--- stop cmp in current buffer in insert mode
+-- stop cmp in current buffer in 'insert' mode
 map("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
 map("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)

@@ -507,9 +507,9 @@ keymap("n", "<leader>ga", "<cmd>!git fetch --all<CR>", opts)
 
 ### [Diffview.nvim](https://github.com/sindrets/diffview.nvim)
 
-### `:DiffviewOpen [git rev] [options] [ -- {paths...}]`
+`:DiffviewOpen [git rev] [options] [ -- {paths...}]`
 
-### `:[range]DiffviewFileHistory [paths] [options]`
+`:[range]DiffviewFileHistory [paths] [options]`
 
 ### [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 

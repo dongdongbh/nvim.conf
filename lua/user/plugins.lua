@@ -45,8 +45,8 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
-  use { "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" } -- Useful lua functions used by lots of plugins
-  use { "windwp/nvim-autopairs", commit = "4fc96c8f3df89b6d23e5092d31c866c53a346347" } -- Autopairs, integrates with both cmp and treesitter
+  use { "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" }  -- Useful lua functions used by lots of plugins
+  use { "windwp/nvim-autopairs", commit = "4fc96c8f3df89b6d23e5092d31c866c53a346347" }  -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
   use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
@@ -63,42 +63,47 @@ return packer.startup(function(use)
   use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea"}
   use { "tpope/vim-abolish", commit = "3f0c8faadf0c5b68bcf40785c1c42e3731bfa522"}
 
-
-  ---- undotree -----------------------------------------------------------
-  use{ "mbbill/undotree", commit = "bd60cb564e3c3220b35293679669bb77af5f389d" }
-  -- work with tmux keybinding
-  use{"christoomey/vim-tmux-navigator", commit = "bd4c38be5b4882991494cf77c0601a55bc45eebf"}
-  ----make nvim can edit with root files
-  use { "lambdalisue/suda.vim" , commit = "2fc45dc4bcafb245b613ebd6847a244924735cc6"}
-  use { "rhysd/vim-grammarous", disable = true }        -- grammar check
-  -- leap for easy motion
-  use { "ggandor/leap.nvim", commit = "a9d3232b178fddabb6660dc19abf40e05d6841b0"}
-  use { "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"}
-
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
   use { "catppuccin/nvim", as = "catppuccin", disable = false, commit = "56604126c671aac3bebd6a33c9d1c55ac9359ce1" }
 
   -- cmp plugins
-  use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
-  use { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" } -- buffer completions
-  use { "hrsh7th/cmp-path", commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1" } -- path completions
+  use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" }         -- The completion plugin
+  use { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" }       -- buffer completions
+  use { "hrsh7th/cmp-path", commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1" }         -- path completions
   use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" } -- snippet completions
   use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
   use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
   -- snippets
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
+  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" }             -- snippet engine
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
   -- LSP
   -- use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
-  use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" } -- enable LSP
+  use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" }           -- enable LSP
   use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"}
   use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
   use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
-  use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+  -- use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+
+  -- Git
+  use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
+  use { "TimUntersberger/neogit", commit = "74c9e29b61780345d3ad9d7a4a4437607caead4a" }
+	use { "sindrets/diffview.nvim", commit = "a1fbcaa7e1e154cfa793ab44da4a6eb0ae15458d"}
+
+  -- DAP
+  use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
+  use { "rcarriga/nvim-dap-ui", commit = "1cd4764221c91686dcf4d6b62d7a7b2d112e0b13" }
+  use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+
+  use{ "mbbill/undotree", commit = "bd60cb564e3c3220b35293679669bb77af5f389d" }              -- -- undotree
+  use{"christoomey/vim-tmux-navigator", commit = "bd4c38be5b4882991494cf77c0601a55bc45eebf"} -- work with tmux keybinding
+  use { "lambdalisue/suda.vim" , commit = "2fc45dc4bcafb245b613ebd6847a244924735cc6"}        -- --make nvim can edit with root files
+  use { "rhysd/vim-grammarous", disable = true }                                             -- grammar check
+  use { "ggandor/leap.nvim", commit = "a9d3232b178fddabb6660dc19abf40e05d6841b0"}            -- leap for easy motion
+  use { "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"}      -- align code
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
@@ -106,9 +111,9 @@ return packer.startup(function(use)
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" }
 
-  use { "vifm/vifm.vim", commit = "a84365d01f9d2854165309392ebce6ba9134d4fd"}      -- support vifm file manager
-  use {  "wakatime/vim-wakatime", commit = "4692ec3e77ade9e65171182296cca74352a39a12" }      -- wakatime work time monitor
-  use {  "folke/which-key.nvim", commit = "6885b669523ff4238de99a7c653d47b081b5506d" }      -- which-key
+  use { "vifm/vifm.vim", commit = "a84365d01f9d2854165309392ebce6ba9134d4fd"}           -- support vifm file manager
+  use {  "wakatime/vim-wakatime", commit = "4692ec3e77ade9e65171182296cca74352a39a12" } -- wakatime work time monitor
+  use {  "folke/which-key.nvim", commit = "6885b669523ff4238de99a7c653d47b081b5506d" }  -- which-key
 
   ---- markdown preview
   ---- install without yarn or npm
@@ -120,15 +125,6 @@ return packer.startup(function(use)
   --	end,
   --	ft = { "markdown" },
   --})
-  -- Git
-  use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
-  use { "TimUntersberger/neogit", commit = "74c9e29b61780345d3ad9d7a4a4437607caead4a" }
-	use { "sindrets/diffview.nvim", commit = "a1fbcaa7e1e154cfa793ab44da4a6eb0ae15458d"}
-
-  -- DAP
-  use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
-  use { "rcarriga/nvim-dap-ui", commit = "1cd4764221c91686dcf4d6b62d7a7b2d112e0b13" }
-  use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
   -- language related tools
   ---- ros

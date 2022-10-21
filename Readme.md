@@ -86,6 +86,19 @@ e.g.
 
 `guu` Change the current line to lowercase (same as Vu).
 
+### about `g`
+
+`gq` word wrap with lone line, e.g. `gqq` wrap current line. `gq3j` wrap three lines.
+`gj` and `gk` : Move cursor up and down to wrapped part of a line as if it is a different line. 
+`g0` and `g$` : Same as previous but move cursor to the first and last letter of a wrapped line. 
+`gq` : Turn a long line into multiple lines. 
+`gu` and `gU` : Uncapitalize and capitalize words/lines. 
+`~` and `g~` : Switch capitalization of a letter. 
+`gf` : Open highlighted text as file. 
+`gv` : Reselecting previous selected text. 
+`gJ` : Conjoining lines without leaving spaces. 
+`g&` : Rerun substitute command for all lines.
+
 ### Jump
 
 `Ctrl + i` - go to newer position in jump list
@@ -118,11 +131,23 @@ e.g.
 
 ### Search
 
+`/` search forward 
+
+`?` search backward 
+
+`*` search current word forward
+
+`#` search current word backward
+
 `\vpattern` 'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)
 
 `n` repeat search in same direction
 
 `:vim[grep] /pattern/ {`{file}`}` - search for pattern in multiple files
+
+### undo
+
+`:e!` back to the state when the file open
 
 ### fold
 
@@ -263,15 +288,19 @@ My key maps
 --   command_mode = "c",
 
 -- change the word under cursor in down or up direction
+keymap("n", "<C-j>", ":cprev<CR>zz", opts)
+keymap("n", "<C-k>", ":cnext<CR>zz", opts)
+
+-- change the word under cursor in down or up direction
 keymap("n", "c*", "*''cgn", opts)
 keymap("n", "c#", "#''cgN", opts)
 
 -- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- Better window navigation, I changed to vim-tmux plugin to manage pane switch
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -286,9 +315,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
--- Close buffers
--- this will close split pane
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+-- Close buffers using bbye plugin
+keymap("n", "<C-q>", "<cmd>Bdelete!<CR>", opts)
 -- close current buffer and open previous buffer in same pane
 -- this avoid close split pane
 keymap("n", "<C-x>", ":bp<Bar>bd #<CR>", opts)
@@ -315,6 +343,11 @@ keymap("n", "<Leader>a", '"ap', opts)
 keymap("n", "<Leader>A", '"Ap', opts)
 -- paste last yanked
 keymap("n", "<Leader>0", '"0p', opts)
+
+-- Set a key-mapping for copy to the system clipboard
+keymap("v", "<Leader>y", '"+y', opts)
+keymap("n", "<Leader>Y", '"+Y', opts)
+--map("n", "<Leader>p", '"+p', opts)
 
 -- Insert --
 -- Avoiding the Esc key
@@ -364,6 +397,10 @@ nnoremap <silent> <Plug>AddBlackLineDown :<C-u>put =repeat(nr2char(10),v:count)<
 nmap ]<Space> <Plug>AddBlackLineDown  
 ]])
 
+-- vim-easy-align
+keymap("x", "ga", ":EasyAlign<CR>", opts)
+keymap("n", "ga", ":EasyAlign<CR>", opts)
+
 -- Vifm
 keymap("n", "<leader>vv", ":Vifm<CR>", opts)
 keymap("n", "<leader>vs", ":VsplitVifm<CR>", opts)
@@ -397,6 +434,16 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- markdown preview
+-- keymap("n", "<C-s>", ":MarkdownPreview<cr>", opts_remap)
+-- keymap("n", "<A-s>", ":MarkdownPreviewStop<cr>", opts_remap)
+-- -- stop cmp in current buffer in 'insert' mode
+keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
+keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
+-- avoid leap conflict with surround S in visual mode
+keymap("v", "-", "<Plug>(leap-forward)", opts)
+keymap("v", "_", "<Plug>(leap-backward)", opts)
 ```
 
 ## plugins

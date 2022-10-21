@@ -33,7 +33,7 @@ keymap("n", "N", "Nzzzv", opts)
 
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "J", "mzJ`z", opts)
+keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
 
 keymap("n", "<C-j>", ":cprev<CR>zz", opts)
 keymap("n", "<C-k>", ":cnext<CR>zz", opts)
@@ -181,3 +181,13 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- markdown preview
+-- keymap("n", "<C-s>", ":MarkdownPreview<cr>", opts_remap)
+-- keymap("n", "<A-s>", ":MarkdownPreviewStop<cr>", opts_remap)
+-- -- stop cmp in current buffer in 'insert' mode
+keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
+keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
+-- avoid leap conflict with surround S in visual mode
+keymap("v", "-", "<Plug>(leap-forward)", opts)
+keymap("v", "_", "<Plug>(leap-backward)", opts)

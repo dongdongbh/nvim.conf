@@ -38,6 +38,10 @@ keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
 keymap("n", "<C-j>", ":cprev<CR>zz", opts)
 keymap("n", "<C-k>", ":cnext<CR>zz", opts)
 
+-- command mode navigate like bash
+keymap("c", "<C-a>", ":<Home>", opts)
+keymap("c", "<C-e>", ":<End>", opts)
+
 -- change the word under cursor in down or up direction
 keymap("n", "c*", "*''cgn", opts)
 keymap("n", "c#", "#''cgN", opts)
@@ -66,7 +70,7 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<C-q>", "<cmd>Bdelete!<CR>", opts)
 -- close current buffer and open previous buffer in same pane
 -- this avoid close split pane
-keymap("n", "<C-x>", ":bp<Bar>bd #<CR>", opts)
+keymap("n", "<leader>x", ":bp <Bar> bd! #<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -103,13 +107,20 @@ keymap("n", "<Leader>Y", '"+Y', opts)
 keymap("i", "jk", "<ESC>", opts)
 -- map("i", "jj", "<Esc>", opts)
 keymap("i", "<S-Tab>", "<Esc>", opts)
-keymap("o", "<S-Tab>", "<Esc>", opts)
+-- Fix last spelling error (repeat.
+keymap("i", "<C-s>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
+
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- sort lines
+keymap("v", "<leader>s", ":sort u", opts)
+keymap("v", "<leader>S", ":sort iu", opts)
+keymap("n", "<leader>s", "vip:sort u", opts)
+keymap("n", "<leader>S", "vip:sort iu", opts)
 -- indent and de-indent using tab
 --map('n', '<Tab>', '>>', opts)
 --map('n', '<S-Tab>', '<<', opts)
@@ -156,7 +167,15 @@ keymap("n", "<leader>vs", ":VsplitVifm<CR>", opts)
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", opts)
+keymap("n", "<leader>E", ":tabe <C-R>=expand('%:p:h') . '/' <CR>", opts)
+keymap("n", "<leader>.", ":lcd %:p:h", opts)
+
+-- toggleterm
+keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
+keymap("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", opts)
+
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
@@ -182,9 +201,6 @@ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- markdown preview
--- keymap("n", "<C-s>", ":MarkdownPreview<cr>", opts_remap)
--- keymap("n", "<A-s>", ":MarkdownPreviewStop<cr>", opts_remap)
 -- -- stop cmp in current buffer in 'insert' mode
 keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
 keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)

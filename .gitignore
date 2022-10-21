@@ -41,5 +41,14 @@ luac.out
 
 
 plugin/packer_compiled.lua
-java-debug/
-vscode-java-test/
+# vim stuffs
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags

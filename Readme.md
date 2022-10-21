@@ -99,6 +99,37 @@ e.g.
 `gJ` : Conjoining lines without leaving spaces. 
 `g&` : Rerun substitute command for all lines.
 
+`gf` go to file under cursor
+`gx` go to link under cursor
+
+### mark
+
+`mx` will mark current place as x, then you can to it latter by ``x`.
+
+### command
+
+run shell command by `:! `, e.g. `:! sort` can sort the lines by shell functions
+sort.
+
+another very useful command is `: norm`, this can be great when editing with multiple
+lines in visual mode. `:'<,'> norm `, the commands after norm are executed as if it in 
+normal mode.
+
+### spelling
+after `:set spell`, you enabled spell check.
+
+set locally by `:setlocal spell` and `:setlocal spell spelllang=<language>`
+
+`z=` show spell candidates
+
+set spell dictionary by `:set spellfile=~/.vim/spell/en.utf-8.add`
+
+disable spell check by `:set nospell`
+
+`zg` add word under cursor to word list(dict)
+
+  `zG` and word under cursor to internal word list
+
 ### Jump
 
 `<C-^>` Alternate buffer

@@ -1,6 +1,6 @@
 # nvim.conf
 
-My configuration of [neovim](https://neovim.io/), which I modify form [ nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide).
+My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide).
 
 ## steps to setup
 

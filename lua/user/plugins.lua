@@ -73,11 +73,12 @@ return packer.startup(function(use)
   use { "rhysd/vim-grammarous", disable = true }        -- grammar check
   -- leap for easy motion
   use { "ggandor/leap.nvim", commit = "a9d3232b178fddabb6660dc19abf40e05d6841b0"}
+  use { "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"}
 
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
-  use { "catppuccin/nvim", as = "catppuccin", disable = true, commit = "56604126c671aac3bebd6a33c9d1c55ac9359ce1" }
+  use { "catppuccin/nvim", as = "catppuccin", disable = false, commit = "56604126c671aac3bebd6a33c9d1c55ac9359ce1" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin

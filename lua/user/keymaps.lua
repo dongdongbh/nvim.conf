@@ -62,9 +62,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
--- Close buffers
--- this will close split pane
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+-- Close buffers using bbye plugin
+keymap("n", "<C-q>", "<cmd>Bdelete!<CR>", opts)
 -- close current buffer and open previous buffer in same pane
 -- this avoid close split pane
 keymap("n", "<C-x>", ":bp<Bar>bd #<CR>", opts)
@@ -91,6 +90,11 @@ keymap("n", "<Leader>a", '"ap', opts)
 keymap("n", "<Leader>A", '"Ap', opts)
 -- paste last yanked
 keymap("n", "<Leader>0", '"0p', opts)
+
+-- Set a key-mapping for copy to the system clipboard
+keymap("v", "<Leader>y", '"+y', opts)
+keymap("n", "<Leader>Y", '"+Y', opts)
+--map("n", "<Leader>p", '"+p', opts)
 
 -- Insert --
 -- Avoiding the Esc key
@@ -139,6 +143,10 @@ nmap [<Space> <Plug>AddBlackLineUp
 nnoremap <silent> <Plug>AddBlackLineDown :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>=:silent! call repeat#set("\<Plug>AddBlackLineDown", v:count)<CR>
 nmap ]<Space> <Plug>AddBlackLineDown  
 ]])
+
+-- vim-easy-align
+keymap("x", "ga", ":EasyAlign<CR>", opts)
+keymap("n", "ga", ":EasyAlign<CR>", opts)
 
 -- Vifm
 keymap("n", "<leader>vv", ":Vifm<CR>", opts)

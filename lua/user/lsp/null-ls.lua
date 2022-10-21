@@ -22,7 +22,7 @@ null_ls.setup {
     formatting.google_java_format,
     formatting.markdownlint,
     formatting.clang_format,
-    formatting.cmakelang,
+    formatting.cmake_format,
 
     diagnostics.flake8,
   },

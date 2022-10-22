@@ -2,6 +2,11 @@
 
 My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide).
 
+[setup](#steps-to-setup)
+[usage](#usage)
+[keymaping](#my-keymap)
+[plugins](#plugins)
+
 ## steps to setup
 
 1. install neovim 0.8+
@@ -23,12 +28,12 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
 6. set terminal font as patched font
 
-# usage
+## usage
 
-## basics
+### basics
 
 see [cheatsheet](https://vim.rtorr.com/) for more.
-### close suspend
+### close & suspend
 `ZZ` save and close, same as `:wq`
 
 `ZQ` close without saving, same as `:q!`
@@ -89,17 +94,27 @@ e.g.
 ### about `g`
 
 `gq` word wrap with lone line, e.g. `gqq` wrap current line. `gq3j` wrap three lines.
+
 `gj` and `gk` : Move cursor up and down to wrapped part of a line as if it is a different line. 
-`g0` and `g$` : Same as previous but move cursor to the first and last letter of a wrapped line. 
+
+`k0` and `g$` : Same as previous but move cursor to the first and last letter of a wrapped line. 
+
 `gq` : Turn a long line into multiple lines. 
+
 `gu` and `gU` : Uncapitalize and capitalize words/lines. 
+
 `~` and `g~` : Switch capitalization of a letter. 
+
 `gf` : Open highlighted text as file. 
+
 `gv` : Reselecting previous selected text. 
+
 `gJ` : Conjoining lines without leaving spaces. 
+
 `g&` : Rerun substitute command for all lines.
 
 `gf` go to file under cursor
+
 `gx` go to link under cursor
 
 ### mark
@@ -111,7 +126,7 @@ e.g.
 run shell command by `:! `, e.g. `:! sort` can sort the lines by shell functions
 sort.
 
-another very useful command is `: norm`, this can be great when editing with multiple
+another very useful command is `:norm`, this can be great when editing with multiple
 lines in visual mode. `:'<,'> norm `, the commands after norm are executed as if it in 
 normal mode.
 
@@ -232,7 +247,7 @@ Ctrl + w, then
 
 `=` equal height
 
-#### buffer
+### buffer
 
 `:ls` list buffers
 
@@ -242,7 +257,7 @@ Ctrl + w, then
 
 `b xxx` to buffer named xxx
 
-#### project management
+### project management
 
 if there are several project, `vim session` can be used. or just use tmux session to manage.
 
@@ -255,7 +270,7 @@ if there is only one project, you want to jump between code or files. there are 
 * for buffers, `barbar` is a plugin for it, and using vim native buffer command is also convenient.
 * for auto completion, there is `lsp-cmp`.
 
-#### other useful tricks
+### other useful tricks
 
 **macro and auto number**
 
@@ -274,7 +289,7 @@ macro on multiple lines
 
 In vim, pattern using regex experssion to match.
 
-### My key mapping
+### keymap check
 
 check keybinding and help
 
@@ -308,7 +323,7 @@ help
 
 `:help i_CTRL-G_<Down>` − insert mode mapping for <C-g><Down>.
 
-My key maps
+## my keymap
 
 
 ```lua

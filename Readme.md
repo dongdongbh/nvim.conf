@@ -2,10 +2,14 @@
 
 My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide).
 
-[setup](#steps-to-setup)
-[usage](#usage)
-[keymaping](#my-keymap)
-[plugins](#plugins)
+[Setup](#steps-to-setup)
+
+[Usage](#usage)
+
+[Keymaping](#my-keymap)
+
+[Plugins](#plugins)
+
 
 ## steps to setup
 
@@ -128,7 +132,9 @@ sort.
 
 another very useful command is `:norm`, this can be great when editing with multiple
 lines in visual mode. `:'<,'> norm `, the commands after norm are executed as if it in 
-normal mode.
+normal mode. use `:norm!` to avoid key maps and just using vim build-in keymaps.
+use '^[' as terminal code of `<Esc>`. The way to get it is to type <Ctrl-v><Esc> on
+the command line. See :h i_CTRL-V for more info.
 
 ### spelling
 after `:set spell`, you enabled spell check.

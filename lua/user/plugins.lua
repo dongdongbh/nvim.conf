@@ -104,6 +104,13 @@ return packer.startup(function(use)
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90"
+  }
+  use {"AckslD/nvim-neoclip.lua", commit = "3e0b9a134838c7356d743f84a272c92410c47d8d"}
+  use { "sudormrfbin/cheatsheet.nvim", commit = "9716f9aaa94dd1fd6ce59b5aae0e5f25e2a463ef" }
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" }
@@ -122,7 +129,7 @@ return packer.startup(function(use)
   --})
 
   ---- for ros
-  ----use("taketwo/vim-ros")
+  use{ "taketwo/vim-ros", commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

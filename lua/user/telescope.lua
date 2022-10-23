@@ -23,3 +23,28 @@ telescope.setup {
     },
   },
 }
+telescope.load_extension('fzf')
+telescope.load_extension('projects')
+local clip_ok, neoclip = pcall(require, "neoclip")
+if not clip_ok then
+  return
+end
+
+neoclip.setup(
+{
+  keys = {
+    telescope = {
+      i = {
+        select = '<cr>',
+        paste = '<c-p>',
+        paste_behind = '<c-u>', -- change defalut since conflict with telescope
+        replay = '<c-q>',  -- replay a macro
+        delete = '<c-d>',  -- delete an entry
+        custom = {},
+      },
+    }
+  }
+})
+
+telescope.load_extension('neoclip')
+

@@ -159,7 +159,7 @@ disable spell check by `:set nospell`
 
 `Ctrl + o` - go to older position in jump list
 
-### insert mode
+### insert mode & completion
 
 `ctrl+h` delete character before cursor
 
@@ -170,6 +170,22 @@ disable spell check by `:set nospell`
 `ctrl+d` de-indent
 
 `ctrl+rx` insert the contents of register x
+
+`ctrl+a` insert text from register '.', which saves the last text that typed 
+in last insert mode. 
+
+`ctrl+p` show the completion menu.
+
+`ctrl+x` special completion mode:
+ * `ctrl+]` tag
+ * `ctrl+p` pull from previous context
+ * `ctrl+n` pull from next context
+ * `ctrl+f` file name
+ * `ctrl-line` line
+ * `ctrl+o` omnicompletion
+ * if you use `cmp` plug, see it's key binding for insert mode.
+ * use `:set complete` to change the completion source.
+ * in command mode use `^` to refer `ctrl+`.
 
 `ctrl+ox` Temporarily enter normal mode to issue **one** normal-mode command x
 

@@ -57,6 +57,7 @@ vim.opt.inccommand     = "nosplit"                 -- interactive feedback
 vim.opt.spell          = true                      -- enable spell check (may need to download language package)
 vim.opt.backupdir      = "~/.cache/vim"            -- Directory to store backup files.
 -- vim.opt.undofile       = true                      -- enable save undo file
+vim.opt.undodir = vim.fn.expand('~/.undodir')
 -- vim.opt.guicursor    = ""               -- disable cursor blinking to speed up vim, give more space for displaying messages.
 
 vim.g.suda_smart_edit  = 1                         -- edit by sudo using suda plugin

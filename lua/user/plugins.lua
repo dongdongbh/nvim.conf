@@ -114,6 +114,7 @@ return packer.startup(function(use)
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" }
+  use { "nvim-treesitter/nvim-treesitter-context", commit = "0dd5eae6dbf226107da2c2041ffbb695d9e267c1" }
 
   use { "vifm/vifm.vim", commit = "a84365d01f9d2854165309392ebce6ba9134d4fd"}          -- support vifm file manager
   use { "wakatime/vim-wakatime", commit = "4692ec3e77ade9e65171182296cca74352a39a12" } -- wakatime work time monitor
@@ -128,8 +129,12 @@ return packer.startup(function(use)
   --	end,
   --})
 
-  ---- for ros
-  -- use{ "taketwo/vim-ros", commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
+  ---- for ros, lock this, since there ia a bug fixed locally
+  use{ "taketwo/vim-ros", lock = true, commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
+  use { 'thibthib18/ros-nvim', config=function()
+    require 'ros-nvim'.setup({})
+  end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -65,3 +65,4 @@ vim.g.suda_smart_edit  = 1                         -- edit by sudo using suda pl
 -- vim.opt.foldmethod = "indent"                     -- set up fold with indent
 vim.opt.foldmethod = "expr"                       -- set up fold control by treesitter
 vim.opt.foldexpr   = "nvim_treesitter#foldexpr()" -- set up fold control by treesitter
+vim.opt.foldlevel  = 99                           -- avoid fold in start up

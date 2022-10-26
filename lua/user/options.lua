@@ -61,3 +61,7 @@ vim.opt.undodir = vim.fn.expand('~/.undodir')
 -- vim.opt.guicursor    = ""               -- disable cursor blinking to speed up vim, give more space for displaying messages.
 
 vim.g.suda_smart_edit  = 1                         -- edit by sudo using suda plugin
+
+-- vim.opt.foldmethod = "indent"                     -- set up fold with indent
+vim.opt.foldmethod = "expr"                       -- set up fold control by treesitter
+vim.opt.foldexpr   = "nvim_treesitter#foldexpr()" -- set up fold control by treesitter

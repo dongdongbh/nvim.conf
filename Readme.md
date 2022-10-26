@@ -10,7 +10,6 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
 [Plugins](#plugins)
 
-
 ## steps to setup
 
 1. install neovim 0.8+
@@ -22,7 +21,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 4. install language server by `:Mason`
 
 5. add patch fonts on [Nerd Font compatible font](https://github.com/ryanoasis/nerd-fonts#font-installation)
-
+   
    ```
    mkdir -p ~/.local/share/fonts
    cp xxx.otf ~/.local/share/fonts/
@@ -37,7 +36,9 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 ### basics
 
 see [cheatsheet](https://vim.rtorr.com/) for more.
+
 ### close & suspend
+
 `ZZ` save and close, same as `:wq`
 
 `ZQ` close without saving, same as `:q!`
@@ -137,6 +138,7 @@ use '^[' as terminal code of `<Esc>`. The way to get it is to type <Ctrl-v><Esc>
 the command line. See :h i_CTRL-V for more info.
 
 ### spelling
+
 after `:set spell`, you enabled spell check.
 
 set locally by `:setlocal spell` and `:setlocal spell spelllang=<language>`
@@ -177,15 +179,16 @@ in last insert mode.
 `ctrl+p` show the completion menu.
 
 `ctrl+x` special completion mode:
- * `ctrl+]` tag
- * `ctrl+p` pull from previous context
- * `ctrl+n` pull from next context
- * `ctrl+f` file name
- * `ctrl-line` line
- * `ctrl+o` omnicompletion
- * if you use `cmp` plug, see it's key binding for insert mode.
- * use `:set complete` to change the completion source.
- * in command mode use `^` to refer `ctrl+`.
+
+* `ctrl+]` tag
+* `ctrl+p` pull from previous context
+* `ctrl+n` pull from next context
+* `ctrl+f` file name
+* `ctrl-line` line
+* `ctrl+o` omnicompletion
+* if you use `cmp` plug, see it's key binding for insert mode.
+* use `:set complete` to change the completion source.
+* in command mode use `^` to refer `ctrl+`.
 
 `ctrl+ox` Temporarily enter normal mode to issue **one** normal-mode command x
 
@@ -346,7 +349,6 @@ help
 `:help i_CTRL-G_<Down>` − insert mode mapping for <C-g><Down>.
 
 ## my keymap
-
 
 ```lua
 -- Modes
@@ -594,21 +596,21 @@ attach installed lsp server by adding server name in `/lua/lsp/init.lua`.
 ### [lsp](https://github.com/neovim/nvim-lspconfig#keybindings-and-completion)
 
 ```lua
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-	keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-	keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+    keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+    keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
+    keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+    keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+    keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+    keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 ```
 
 ### [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
@@ -663,21 +665,21 @@ the mappings.
 three functions
 
 1. Abbreviation
-
+   
    you may misspell `seperate` to `separate`, you can use
-
+   
    ```vim
    :iabbrev  seperate  separate
    ```
-
+   
    But it not covers all cases, e.g. `Seperate Separate`, `SEPERATE SEPARATE` etc.
-
+   
    ```vim
    :Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}
    ```
 
 2. Substitution
-
+   
    ```vim
    :%Subvert/facilit{y,ies}/building{,s}/g
    :Subvert/address{,es}/reference{,s}/g

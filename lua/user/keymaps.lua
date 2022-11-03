@@ -60,6 +60,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
+-- this replaces H, L for moving cursor to top and bottom
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
@@ -101,12 +102,14 @@ keymap("n", "<Leader>Y", '"+Y', opts)
 --map("n", "<Leader>p", '"+p', opts)
 
 -- Insert --
+-- I remap Cap key to esc, so dont need this 
 -- Avoiding the Esc key
 -- Note you can do a normal action by <C-o> in insert mode
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)
 -- map("i", "jj", "<Esc>", opts)
-keymap("i", "<S-Tab>", "<Esc>", opts)
+-- keymap("i", "<S-Tab>", "<Esc>", opts)
+
 -- Fix last spelling error (repeat.
 keymap("i", "<C-s>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
 

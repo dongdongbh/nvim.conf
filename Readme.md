@@ -302,6 +302,8 @@ if there is only one project, you want to jump between code or files. there are 
 In normal mode, typing `Ctrl-A` will increment the next number, and typing `Ctrl-X` will decrement the next number.
 The `nrformats` option defaults to `octal,hex`. Use :set nrformats? to view the current options, or `:set nrformats+=alpha` to add the alpha option.
 
+In visual mode, `Ctrl-a` increase `n` to every line, and `g Ctrl-a` add N to number in highlighted text.
+
 `num+@q` repeat macro num times
 macro on multiple lines
 

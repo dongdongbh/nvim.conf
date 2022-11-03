@@ -122,16 +122,9 @@ return packer.startup(function(use)
 
   -- language related tools
   ---- ros
-  --use({
-  --	"thibthib18/ros-nvim",
-  --	config = function()
-  --		require("ros-nvim").setup({})
-  --	end,
-  --})
-
   ---- for ros, lock this, since there ia a bug fixed locally
   use{ "taketwo/vim-ros", lock = true, commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
-  use { 'thibthib18/ros-nvim', config=function()
+  use { 'thibthib18/ros-nvim', commit = "27498f6eb8e5c5df1a08cf6942f77bf666d8fb0f", config=function()
     require 'ros-nvim'.setup({})
   end
   }

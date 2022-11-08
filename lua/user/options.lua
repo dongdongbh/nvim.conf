@@ -6,7 +6,7 @@ vim.opt.conceallevel   = 0                         -- so that `` is visible in m
 vim.opt.fileencoding   = "utf-8"                   -- the encoding written to a file
 vim.opt.hlsearch       = true                      -- highlight all matches on previous search pattern
 vim.opt.ignorecase     = true                      -- ignore case in search patterns
-                                                   -- vim.opt.mouse       = "a"                             -- allow the mouse to be used in neovim
+vim.opt.mouse          = "a"                       -- allow the mouse to be used in neovim
 vim.opt.pumheight      = 10                        -- pop up menu height
 vim.opt.showmode       = false                     -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline    = 0                         -- always show tabs
@@ -56,6 +56,7 @@ vim.opt.colorcolumn    = "80"                      -- vim.opt.an 80 column borde
 vim.opt.inccommand     = "nosplit"                 -- interactive feedback
 vim.opt.spell          = true                      -- enable spell check (may need to download language package)
 vim.opt.backupdir      = "~/.cache/vim"            -- Directory to store backup files.
+
 -- vim.opt.undofile       = true                      -- enable save undo file
 vim.opt.undodir = vim.fn.expand('~/.undodir')
 -- vim.opt.guicursor    = ""               -- disable cursor blinking to speed up vim, give more space for displaying messages.

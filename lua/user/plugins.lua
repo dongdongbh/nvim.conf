@@ -62,6 +62,11 @@ return packer.startup(function(use)
   use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea"}
   use { "tpope/vim-abolish", commit = "3f0c8faadf0c5b68bcf40785c1c42e3731bfa522"}
 
+
+  use { "rrethy/vim-hexokinase",
+    commit = "62324b43ea858e268fb70665f7d012ae67690f43",
+    run = "make hexokinase"}                                      -- gui color
+
   -- Colorschemes
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
   use { "catppuccin/nvim", as = "catppuccin", disable = false, commit = "56604126c671aac3bebd6a33c9d1c55ac9359ce1" }
@@ -124,7 +129,7 @@ return packer.startup(function(use)
   ---- ros
   ---- for ros, lock this, since there ia a bug fixed locally
   use{ "taketwo/vim-ros", lock = true, commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
-  use { 'thibthib18/ros-nvim', commit = "27498f6eb8e5c5df1a08cf6942f77bf666d8fb0f", config=function()
+  use { 'thibthib18/ros-nvim', commit = "db730462cdc09c1e45d0c491783548dd493d5914", config=function()
     require 'ros-nvim'.setup({})
   end
   }

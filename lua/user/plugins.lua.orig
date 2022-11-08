@@ -129,7 +129,11 @@ return packer.startup(function(use)
   ---- ros
   ---- for ros, lock this, since there ia a bug fixed locally
   use{ "taketwo/vim-ros", lock = true, commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
+<<<<<<< HEAD
+  use { 'thibthib18/ros-nvim', commit = "db730462cdc09c1e45d0c491783548dd493d5914", config=function()
+=======
   use { 'thibthib18/ros-nvim', commit = "27498f6eb8e5c5df1a08cf6942f77bf666d8fb0f", config=function()
+>>>>>>> 0a797394bb0a9de0a888f7d57e0b38327aa21f39
     require 'ros-nvim'.setup({})
   end
   }

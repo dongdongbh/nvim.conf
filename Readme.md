@@ -151,7 +151,9 @@ disable spell check by `:set nospell`
 
 `zg` add word under cursor to word list(dict)
 
-  `zG` and word under cursor to internal word list
+`zG` and word under cursor to internal word list
+
+`C-x, C-s` do spell suggestion in insert.
 
 ### Jump
 

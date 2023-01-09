@@ -1,10 +1,10 @@
 setlocal wrap
 setlocal linebreak
 setlocal autoindent
-" setlocal spell
+setlocal spell
 setlocal spellsuggest+=5
 setlocal breakindent
-setlocal colorcolumn = 100
+setlocal colorcolumn=100
 setlocal formatlistpat="^\s*\d\+[\]:.)}\t ]\s*"
 setlocal breakindentopt=shift:0,list:-1
 

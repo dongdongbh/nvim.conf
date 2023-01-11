@@ -84,11 +84,18 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
   -- LSP
-  -- use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
   use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" }           -- enable LSP
   use { "williamboman/mason.nvim", commit = "bfc5997e52fe9e20642704da050c415ea1d4775f"}
   use { "williamboman/mason-lspconfig.nvim", commit = "0eb7cfefbd3a87308c1875c05c3f3abac22d367c" }
   use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
+
+  use { "zbirenbaum/copilot.lua", commit = "5b911f2d8ecccc684c13fdb8af4145cca19dc3cf" }
+  use {
+    "zbirenbaum/copilot-cmp",
+    commit = "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760",
+    after = { "copilot.lua" },
+  }
+
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }

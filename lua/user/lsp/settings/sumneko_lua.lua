@@ -1,5 +1,6 @@
 return {
   settings = {
+    -- cmd = {'lua-language-server', '--loglevel=trace'},
     Lua = {
       diagnostics = {
         globals = { "vim" },

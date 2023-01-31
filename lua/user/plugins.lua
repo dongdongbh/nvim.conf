@@ -62,7 +62,6 @@ return packer.startup(function(use)
   use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea"}
   use { "tpope/vim-abolish", commit = "3f0c8faadf0c5b68bcf40785c1c42e3731bfa522"}
 
-
   use { "rrethy/vim-hexokinase",
     commit = "62324b43ea858e268fb70665f7d012ae67690f43",
     run = "make hexokinase"}                                      -- gui color
@@ -93,9 +92,8 @@ return packer.startup(function(use)
   use {
     "zbirenbaum/copilot-cmp",
     commit = "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760",
-    after = { "copilot.lua" },
+    after = { "copilot.lua" }
   }
-
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }

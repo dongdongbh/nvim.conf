@@ -79,6 +79,9 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `J` - **join line** below to the current one with one space in between
 
+  `{` - to previous paragraph
+  `}` - to next paragraph
+
 ### uppercase and lowercase
 
   `~`  - switch case
@@ -175,7 +178,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `ctrl+d` de-indent
 
-  `ctrl+rx` insert the contents of register x
+  `ctrl+r, x` insert the contents of register x, can use in **search and command mode**.
 
   `ctrl+a` insert text from register '.', which saves the last text that typed 
   in last insert mode. 
@@ -194,7 +197,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   * use `:set complete` to change the completion source.
   * in command mode use `^` to refer `ctrl+`.
 
-  `ctrl+ox` Temporarily enter normal mode to issue **one** normal-mode command x
+  `ctrl+o, x` Temporarily enter normal mode to issue **one** normal-mode command `x`.
 
 ### indent
 

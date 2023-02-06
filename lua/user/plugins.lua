@@ -70,6 +70,14 @@ return packer.startup(function(use)
   use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
   use { "catppuccin/nvim", as = "catppuccin", disable = false, commit = "56604126c671aac3bebd6a33c9d1c55ac9359ce1" }
 
+  -- tools 
+  use { "mbbill/undotree", commit = "bd60cb564e3c3220b35293679669bb77af5f389d" }              -- -- undotree
+  use { "christoomey/vim-tmux-navigator", commit = "bd4c38be5b4882991494cf77c0601a55bc45eebf"} -- work with tmux keybinding
+  use { "lambdalisue/suda.vim" , commit = "2fc45dc4bcafb245b613ebd6847a244924735cc6"}        -- --make nvim can edit with root files
+  use { "rhysd/vim-grammarous", disable = true }                                             -- grammar check
+  use { "ggandor/leap.nvim", commit = "a9d3232b178fddabb6660dc19abf40e05d6841b0"}            -- leap for easy motion
+  use { "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"}      -- align code
+
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" }         -- The completion plugin
   use { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" }       -- buffer completions
@@ -92,25 +100,19 @@ return packer.startup(function(use)
   use {
     "zbirenbaum/copilot-cmp",
     commit = "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760",
-    after = { "copilot.lua" }
+   after = { "copilot.lua" }
   }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
   use { "TimUntersberger/neogit", commit = "c1a2a1aa5b4fd774dc26c53f7f256f1320c0ff15" }
-	use { "sindrets/diffview.nvim", commit = "a1fbcaa7e1e154cfa793ab44da4a6eb0ae15458d"}
+	-- use { "sindrets/diffview.nvim", commit = "a1fbcaa7e1e154cfa793ab44da4a6eb0ae15458d"}
 
   -- DAP
-  use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
-  use { "rcarriga/nvim-dap-ui", commit = "1cd4764221c91686dcf4d6b62d7a7b2d112e0b13" }
-  use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
-
-  use { "mbbill/undotree", commit = "bd60cb564e3c3220b35293679669bb77af5f389d" }              -- -- undotree
-  use { "christoomey/vim-tmux-navigator", commit = "bd4c38be5b4882991494cf77c0601a55bc45eebf"} -- work with tmux keybinding
-  use { "lambdalisue/suda.vim" , commit = "2fc45dc4bcafb245b613ebd6847a244924735cc6"}        -- --make nvim can edit with root files
-  use { "rhysd/vim-grammarous", disable = true }                                             -- grammar check
-  use { "ggandor/leap.nvim", commit = "a9d3232b178fddabb6660dc19abf40e05d6841b0"}            -- leap for easy motion
-  use { "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"}      -- align code
+  -- use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
+  -- use { "rcarriga/nvim-dap-ui", commit = "1cd4764221c91686dcf4d6b62d7a7b2d112e0b13" }
+  -- use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+  
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }

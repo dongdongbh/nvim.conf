@@ -100,7 +100,7 @@ return packer.startup(function(use)
   use {
     "zbirenbaum/copilot-cmp",
     commit = "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760",
-   after = { "copilot.lua" }
+    --after = { "copilot.lua" }
   }
 
   -- Git
@@ -135,11 +135,11 @@ return packer.startup(function(use)
   -- language related tools
   ---- ros
   ---- for ros, lock this, since there ia a bug fixed locally
-  use{ "taketwo/vim-ros", lock = true, commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
-  use { 'thibthib18/ros-nvim', commit = "27498f6eb8e5c5df1a08cf6942f77bf666d8fb0f", config=function()
-    require 'ros-nvim'.setup({})
-  end
-  }
+  -- use{ "taketwo/vim-ros", lock = true, commit = "dd1cf9df82c8588bb9d28352f82002647a354306" }
+  -- use { 'thibthib18/ros-nvim', commit = "27498f6eb8e5c5df1a08cf6942f77bf666d8fb0f", config=function()
+  --   require 'ros-nvim'.setup({})
+  -- end
+  -- }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

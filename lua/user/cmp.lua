@@ -76,12 +76,12 @@ cmp.setup({
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if require("copilot.suggestion").is_visible() then
-        require("copilot.suggestion").accept()
-      elseif cmp.visible() then
+      -- if require("copilot.suggestion").is_visible() then
+      --   require("copilot.suggestion").accept()
+      if cmp.visible() and has_words_before() then
         cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
       elseif luasnip.expandable() then
         luasnip.expand()
@@ -128,31 +128,31 @@ cmp.setup({
     {
       name = "copilot",
       max_item_count = 3,
-      trigger_characters = {
-        {
-          ".",
-          ":",
-          "(",
-          "'",
-          '"',
-          "[",
-          ",",
-          "#",
-          "*",
-          "@",
-          "|",
-          "=",
-          "-",
-          "{",
-          "/",
-          "\\",
-          "+",
-          "?",
-          " ",
-          -- "\t",
-          -- "\n",
-        },
-      },
+      -- trigger_characters = {
+      --   {
+      --     ".",
+      --     ":",
+      --     "(",
+      --     "'",
+      --     '"',
+      --     "[",
+      --     ",",
+      --     "#",
+      --     "*",
+      --     "@",
+      --     "|",
+      --     "=",
+      --     "-",
+      --     "{",
+      --     "/",
+      --     "\\",
+      --     "+",
+      --     "?",
+      --     " ",
+      --     -- "\t",
+      --     -- "\n",
+      --   },
+      -- },
       group_index = 2,
     },
     { name = "nvim_lsp" },

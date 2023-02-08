@@ -96,7 +96,10 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim", commit = "0eb7cfefbd3a87308c1875c05c3f3abac22d367c" }
   use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
 
-  use { "zbirenbaum/copilot.lua", commit = "5b911f2d8ecccc684c13fdb8af4145cca19dc3cf" }
+  use { "zbirenbaum/copilot.lua",
+    -- cmd = "Copilot",
+    -- event = "InsertEnter",
+    commit = "a54e7b11a2c6efc9ddd3f42e56cf7d9eed1a9683" }
   use {
     "zbirenbaum/copilot-cmp",
     commit = "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760",

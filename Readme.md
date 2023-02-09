@@ -580,6 +580,42 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   `gb` - Toggles the region using blockwise comment
   ```
 
+### [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+
+  ```lua
+  keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
+  keymap("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", opts)
+  keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+  ```
+### [NvimTree](https://github.com/nvim-tree/nvim-tree.lua)
+
+  ```lua
+  keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", opts)
+  keymap("n", "<leader>E", ":tabe <C-R>=expand('%:p:h') . '/' <CR>", opts)
+  keymap("n", "<leader>.", ":lcd %:p:h", opts)
+  ```
+
+### [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+
+  ```lua
+  keymap("x", "ga", ":EasyAlign<CR>", opts)
+  keymap("n", "ga", ":EasyAlign<CR>", opts)
+  ```
+
+### [Vifm](https://github.com/vifm/vifm.vim)
+
+  ```lua
+  keymap("n", "<leader>vv", ":Vifm<CR>", opts)
+  keymap("n", "<leader>vs", ":VsplitVifm<CR>", opts)
+  ```
+### [cmp](https://github.com/hrsh7th/nvim-cmp)
+
+```lua
+-- stop cmp in current buffer in 'insert' mode
+keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
+keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
+```
+
 ### [leap.vim](https://github.com/ggandor/leap.nvim)
 
   a fast search plugin, similar to sneak.vim, easy motion.
@@ -596,7 +632,29 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
   keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
   keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+  keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+  keymap("n", "<leader>fr", ":Telescope neoclip<CR>", opts)
+  keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
   ```
+
+### [neoclip](https://github.com/AckslD/nvim-neoclip.lua)
+``` lua
+neoclip.setup(
+{
+  keys = {
+    telescope = {
+      i = {
+        select = '<cr>',
+        paste = '<c-p>',
+        paste_behind = '<c-u>', -- change defalut since conflict with telescope
+        replay = '<c-q>',  -- replay a macro
+        delete = '<c-d>',  -- delete an entry
+        custom = {},
+      },
+    }
+  }
+})
+```
 
 ### [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 

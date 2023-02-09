@@ -149,7 +149,6 @@ keymap("n", "g=", "gg=G''", opts)
 -- save with sudo in command_mode
 -- keymap("c", "W!!", ":w !sudo tee % >/dev/null<Cr>:e!<Cr>", opts)
 
--- Plugins --
 -- repeat
 -- Add [count] blank lines above/below cursor and make it repeatable
 --map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>', opts)
@@ -161,6 +160,7 @@ nnoremap <silent> <Plug>AddBlackLineDown :<C-u>put =repeat(nr2char(10),v:count)<
 nmap ]<Space> <Plug>AddBlackLineDown  
 ]])
 
+-- Plugins --
 -- vim-easy-align
 keymap("x", "ga", ":EasyAlign<CR>", opts)
 keymap("n", "ga", ":EasyAlign<CR>", opts)
@@ -181,7 +181,6 @@ keymap("n", "<leader>.", ":lcd %:p:h", opts)
 -- toggleterm
 keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
 keymap("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", opts)
-
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
@@ -213,6 +212,7 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- -- stop cmp in current buffer in 'insert' mode
 keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
 keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
+
 -- avoid leap conflict with surround S in visual mode
 keymap("v", "-", "<Plug>(leap-forward)", opts)
 keymap("v", "_", "<Plug>(leap-backward)", opts)

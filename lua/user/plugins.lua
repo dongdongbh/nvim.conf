@@ -108,7 +108,7 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
-  use { "TimUntersberger/neogit", commit = "c1a2a1aa5b4fd774dc26c53f7f256f1320c0ff15" }
+  -- use { "TimUntersberger/neogit", commit = "c1a2a1aa5b4fd774dc26c53f7f256f1320c0ff15" }
 	use { "sindrets/diffview.nvim", commit = "a1fbcaa7e1e154cfa793ab44da4a6eb0ae15458d"}
 
   -- DAP

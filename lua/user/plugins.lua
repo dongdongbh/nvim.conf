@@ -144,6 +144,17 @@ return packer.startup(function(use)
   -- end
   -- }
 
+  -- note takeing 
+  use { "nvim-neorg/neorg",
+    -- tag = "*",
+    run = ":Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim",
+  }
+  use {
+    'phaazon/mind.nvim',
+    branch = 'v2.2',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

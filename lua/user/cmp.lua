@@ -156,6 +156,7 @@ cmp.setup({
       group_index = 2,
     },
     { name = "nvim_lsp" },
+    { name = "neorg" },
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },

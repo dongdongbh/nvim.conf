@@ -6,7 +6,26 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
 [Usage](#usage)
 
-[Keymaping](#my-keymap)
+- [close & suspend](#close-suspend)
+- [Move around](#Move-around)
+- [uppercase and lowercase](#uppercase-lowercase)
+- [about `g`](#about-g)
+- [mark](#mark)
+- [command](#command)
+- [shell command](#shell-command)
+- [spelling](#spelling)
+- [Jump](#Jump)
+- [insert mode & completion](#insert-completion)
+- [indent](#indent)
+- [Search](#Search)
+- [undo](#undo)
+- [fold](#fold)
+- [window navigate](#window-navigate)
+- [buffer](#buffer)
+- [project management](#project-management)
+- [other useful tricks](#other-useful-tricks)
+- [keymap check](#keymap-check)
+- [Keymaping](#my-keymap)
 
 [Plugins](#plugins)
 
@@ -39,7 +58,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   see [cheatsheet](https://vim.rtorr.com/) for more.
 
-### close & suspend
+### close-suspend
 
   `ZZ` save and close, same as `:wq`
 
@@ -47,7 +66,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `Ctrl-z` suspend vim and back to terminal, then `fg` urn back to vim
 
-### Move around
+### Move-around
 
   `CTRL+u` scroll up half page
 
@@ -82,7 +101,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   `{` - to previous paragraph
   `}` - to next paragraph
 
-### uppercase and lowercase
+### uppercase-lowercase
 
   `~`  - switch case
 
@@ -101,7 +120,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `guu` Change the current line to lowercase (same as Vu).
 
-### about `g`
+### about-g
 
   `gq` word wrap with lone line, e.g. `gqq` wrap current line. `gq3j` wrap three lines.
 
@@ -142,6 +161,16 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   use '^[' as terminal code of `<Esc>`. The way to get it is to type <Ctrl-v><Esc> on
   the command line. See :h i_CTRL-V for more info.
 
+### shell-command
+
+  `:!unix_command` to exec shell command
+  `!!+unix_command` will send result to current buffer (replace current selected text)
+  `:r!unix_command` write the out put of your command to buffer
+  `:r !ls` read the output of `ls` command to current buffer.
+  `:10,20!sh` execute multiple lines of your vi buffer by the shell
+  `%` is current file name, `%:p` is the full path of current file, `%:p:h` is the dictionary of current file.
+
+
 ### spelling
 
   after `:set spell`, you enabled spell check.
@@ -168,7 +197,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `Ctrl + o` - go to older position in jump list
 
-### insert mode & completion
+### insert-completion
 
   `ctrl+h` delete character before cursor
 
@@ -247,7 +276,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `zi` - toggle folding functionality
 
-### window navigate
+### window-navigate
 
   Ctrl + w, then
 
@@ -289,7 +318,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `b xxx` to buffer named xxx
 
-### project management
+### project-management
 
   if there are several project, `vim session` can be used. or just use tmux session to manage.
 
@@ -302,7 +331,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   * for buffers, `barbar` is a plugin for it, and using vim native buffer command is also convenient.
   * for auto completion, there is `lsp-cmp`.
 
-### other useful tricks
+### other-useful-tricks
 
   **macro and auto number**
 
@@ -323,7 +352,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   In vim, pattern using regex experssion to match.
 
-### keymap check
+### keymap-check
 
   check keybinding and help
 
@@ -715,6 +744,15 @@ neoclip.setup(
   `:DiffviewOpen [git rev] [options] [ -- {paths...}]`
 
   `:[range]DiffviewFileHistory [paths] [options]`
+#### merge with diffview
+  `:h diffview-merge-tool` for more.
+  • `<leader>co`: Choose the OURS version of the conflict.
+  • `<leader>ct`: Choose the THEIRS version of the conflict.
+  • `<leader>cb`: Choose the BASE version of the conflict.
+  • `<leader>ca`: Choose all versions of the conflict (effectively
+      just deletes the markers, leaving all the content).
+  • `dx`: Choose none of the versions of the conflict (delete the
+      conflict region).
 
 ### [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 

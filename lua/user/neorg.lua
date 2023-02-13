@@ -13,7 +13,7 @@ require('neorg').setup {
       config = {
         workspaces = {
           work = "~/Documents/notes/work",
-          home = "~/Document/notes/home",
+          personal = "~/Document/notes/personal",
         },
         index = "index.norg", -- The name of the main (root) .norg file
       },

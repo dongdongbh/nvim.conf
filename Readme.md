@@ -8,6 +8,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
 - [close & suspend](#close-suspend)
 - [Move around](#Move-around)
+- [window navigate](#window-navigate)
 - [uppercase and lowercase](#uppercase-lowercase)
 - [about `g`](#about-g)
 - [mark](#mark)
@@ -20,7 +21,6 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 - [Search](#Search)
 - [undo](#undo)
 - [fold](#fold)
-- [window navigate](#window-navigate)
 - [buffer](#buffer)
 - [project management](#project-management)
 - [other useful tricks](#other-useful-tricks)
@@ -100,6 +100,40 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
   `{` - to previous paragraph
   `}` - to next paragraph
+
+### window-navigate
+
+  Ctrl + w, then
+
+  `v` vsplit
+
+  `s` horizontal
+
+  `o` make current window the only window
+
+  `n` create new window and start editing an empty file in it
+
+  `h` `l` `j` `k` move cursor to window in the direction
+
+  `K` `J` `L` `H` move window to the direction
+
+  `w` switch window
+
+  `x` exchange current window with next one
+
+  `q` quit window (if is last window, quit vim)
+
+  `c` close window
+
+  `SHIFT + ‘>’` increase width to right
+
+  `SHIFT + ‘<’` increase width to left
+
+  `SHIFT + ‘+’` increase height
+
+  `-` decrease height
+
+  `=` equal height
 
 ### uppercase-lowercase
 
@@ -275,38 +309,6 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
   `zm` - fold more (close) all folds by one level
 
   `zi` - toggle folding functionality
-
-### window-navigate
-
-  Ctrl + w, then
-
-  `v` vsplit
-
-  `s` horizontal
-
-  `h` go to left window
-
-  `l` go to right window
-
-  `j` go to down window
-
-  `k` go to up window
-
-  `w` switch window
-
-  `x` exchange current window with next one
-
-  `q` quit window
-
-  `SHIFT + ‘>’` increase width to right
-
-  `SHIFT + ‘<’` increase width to left
-
-  `SHIFT + ‘+’` increase height
-
-  `-` decrease height
-
-  `=` equal height
 
 ### buffer
 

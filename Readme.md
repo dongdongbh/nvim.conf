@@ -28,8 +28,27 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 - [Keymaping](#my-keymap)
 
 [Plugins](#plugins)
+- [surround](#surround)
+- [Comment.nvim](#Comment.nvim)
+- [toggleterm.nvim](#toggleterm.nvim)
+- [NvimTree](#NvimTree)
+- [vim-easy-align](#vim-easy-align)
+- [Vifm](#Vifm)
+- [cmp](#cmp)
+- [leap.vim](#leap.vim)
+- [telescope.nvim](#telescope.nvim)
+- [neoclip](#neoclip)
+- [nvim-lsp-installer](#nvim-lsp-installer)
+- [lsp](#lsp)
+- [null-ls](#null-ls)
+- [undotree](#undotree)
+- ~~[Neogit](#Neogit)~~
+- [Diffview.nvim](#Diffview.nvim)
+- [vim-tmux-navigator](#vim-tmux-navigator)
+- [vim-abolish](#vim-abolish)
+- [vim-grammarous](#vim-grammarous)
 
-[LSP](#LSP)
+[LSP](#LSP-setting)
 
 ## steps to setup
 
@@ -805,7 +824,7 @@ neoclip.setup(
 
   :GrammarousCheck
 
-## LSP
+## LSP-setting
   LSP is one of most important feature of neovim. Here I list some method to use 
   lsp.
 

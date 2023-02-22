@@ -15,6 +15,7 @@ require('neorg').setup {
           work = "~/Documents/notes/work",
           personal = "~/Document/notes/personal",
         },
+        default_workspace = "work",
         index = "index.norg", -- The name of the main (root) .norg file
       },
     },

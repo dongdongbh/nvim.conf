@@ -29,8 +29,8 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
 [Plugins](#plugins)
 - [surround](#surround)
-- [Comment.nvim](#Comment.nvim)
-- [toggleterm.nvim](#toggleterm.nvim)
+- [Comment.nvim](#Comment)
+- [toggleterm.nvim](#toggleterm)
 - [NvimTree](#NvimTree)
 - [vim-easy-align](#vim-easy-align)
 - [Vifm](#Vifm)
@@ -43,7 +43,7 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 - [null-ls](#null-ls)
 - [undotree](#undotree)
 - ~~[Neogit](#Neogit)~~
-- [Diffview.nvim](#Diffview.nvim)
+- [Diffview.nvim](#Diffview)
 - [vim-tmux-navigator](#vim-tmux-navigator)
 - [vim-abolish](#vim-abolish)
 - [vim-grammarous](#vim-grammarous)
@@ -612,7 +612,7 @@ Learn more about vim, refer [vim-galore](https://github.com/mhinz/vim-galore).
 
   in visual select mode, use `S` + surround symbols
 
-### [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+### [Comment](https://github.com/numToStr/Comment.nvim)
 
   - NORMAL mode
 
@@ -632,7 +632,7 @@ Learn more about vim, refer [vim-galore](https://github.com/mhinz/vim-galore).
   `gb` - Toggles the region using blockwise comment
   ```
 
-### [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+### [toggleterm](https://github.com/akinsho/toggleterm.nvim)
 
   ```lua
   keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
@@ -762,7 +762,7 @@ neoclip.setup(
   keymap("n", "<leader>ga", "<cmd>!git fetch --all<CR>", opts)
   ```
 
-### [Diffview.nvim](https://github.com/sindrets/diffview.nvim)
+### [Diffview](https://github.com/sindrets/diffview.nvim)
 
   `:DiffviewOpen [git rev] [options] [ -- {paths...}]`
 

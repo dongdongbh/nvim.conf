@@ -53,12 +53,16 @@ require("diffview").setup({
     },
   },
   file_history_panel = {
-    log_options = { -- See ':h diffview-config-log_options'
-      single_file = {
-        diff_merges = "combined",
-      },
-      multi_file = {
-        diff_merges = "first-parent",
+    log_options = {
+      git = {
+        single_file = {
+          max_count = 512,
+          follow = true,
+          diff_merges = "combined",
+        },
+        multi_file = {
+          diff_merges = "first-parent",
+        },
       },
     },
     win_config = { -- See ':h diffview-config-win_config'

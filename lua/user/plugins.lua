@@ -115,7 +115,6 @@ return packer.startup(function(use)
   -- use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
   -- use { "rcarriga/nvim-dap-ui", commit = "1cd4764221c91686dcf4d6b62d7a7b2d112e0b13" }
   -- use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
-  
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
@@ -131,8 +130,9 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" }
   use { "nvim-treesitter/nvim-treesitter-context", commit = "0dd5eae6dbf226107da2c2041ffbb695d9e267c1" }
 
-  use { "vifm/vifm.vim", commit = "a84365d01f9d2854165309392ebce6ba9134d4fd"}          -- support vifm file manager
+  use {"kevinhwang91/rnvimr", commit = "cd0311d65cb3b8f8737b52f3294eb77d2fcec826"} -- ranger support
   use { "wakatime/vim-wakatime", commit = "4692ec3e77ade9e65171182296cca74352a39a12" } -- wakatime work time monitor
+  use { "folke/zen-mode.nvim", commit = "3c92f503823088862ca2a7809d1c7edc90fb92fa"} --zen mode
   use { "folke/which-key.nvim", commit = "6885b669523ff4238de99a7c653d47b081b5506d" }  -- which-key
 
   -- language related tools
@@ -150,11 +150,11 @@ return packer.startup(function(use)
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",
   }
-  use {
-    'phaazon/mind.nvim',
-    branch = 'v2.2',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
+  -- use {
+  --   'phaazon/mind.nvim',
+  --   branch = 'v2.2',
+  --   requires = { 'nvim-lua/plenary.nvim' },
+  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

@@ -166,8 +166,14 @@ keymap("x", "ga", ":EasyAlign<CR>", opts)
 keymap("n", "ga", ":EasyAlign<CR>", opts)
 
 -- Vifm
-keymap("n", "<leader>vv", ":Vifm<CR>", opts)
-keymap("n", "<leader>vs", ":VsplitVifm<CR>", opts)
+-- keymap("n", "<leader>vv", ":vifm<cr>", opts)
+-- keymap("n", "<leader>vs", ":vsplitvifm<cr>", opts)
+
+-- ranger with Rnvimr
+keymap("t", "<M-i>", "<C-\\><C-n>:RnvimrResize<CR>", opts)
+keymap("n", "<M-o>", ":RnvimrToggle<CR>", opts)
+keymap("t", "<M-o>", "<C-\\><C-n>:RnvimrToggle<CR>", opts)
+
 
 -- Undo tree
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)

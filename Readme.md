@@ -73,6 +73,8 @@ My configuration of [neovim](https://neovim.io/), which I modify from [ nvim-bas
 
 ## usage
 
+Learn more about vim, refer [vim-galore](https://github.com/mhinz/vim-galore).
+
 ### basics
 
   see [cheatsheet](https://vim.rtorr.com/) for more.

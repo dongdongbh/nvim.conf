@@ -63,7 +63,10 @@ vim.opt.backupdir      = "~/.cache/vim"            -- Directory to store backup 
 vim.opt.undodir = vim.fn.expand('~/.undodir')
 -- vim.opt.guicursor    = ""               -- disable cursor blinking to speed up vim, give more space for displaying messages.
 
-vim.g.suda_smart_edit  = 1                         -- edit by sudo using suda plugin
+-- edit by sudo using suda plugin, currently there is a bug in neovim lsp make a
+-- probelm with lsp, see https://github.com/lambdalisue/suda.vim/issues/54
+-- just us `:SudaWrite` currently
+-- vim.g.suda_smart_edit  = 1                         
 
 -- vim.opt.foldmethod = "indent"                     -- set up fold with indent
 vim.opt.foldmethod = "expr"                       -- set up fold control by treesitter

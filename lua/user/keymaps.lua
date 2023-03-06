@@ -4,7 +4,7 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 --Remap comma as leader key
-keymap("", "<Space>", "<Nop>", opts)
+keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 
 -- Modes

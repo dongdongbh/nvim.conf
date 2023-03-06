@@ -3,9 +3,9 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
---Remap space as leader key
+--Remap comma as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- Modes
 --   normal_mode = "n",
@@ -35,8 +35,13 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
 
-keymap("n", "<C-j>", ":cprev<CR>zz", opts)
-keymap("n", "<C-k>", ":cnext<CR>zz", opts)
+-- conflict with tmux navigate plugin
+-- keymap("n", "<C-j>", ":cprev<CR>zz", opts)
+-- keymap("n", "<C-k>", ":cnext<CR>zz", opts)
+
+-- break line by ctrl + j
+keymap("n", "<C-m>", "i<CR><ESC>", opts)
+-- keymap("n", "<C-j>", "i<CR><ESC>", opts)
 
 -- command mode navigate like bash
 keymap("c", "<C-a>", ":<Home>", opts)
@@ -47,11 +52,6 @@ keymap("n", "c*", "*''cgn", opts)
 keymap("n", "c#", "#''cgN", opts)
 
 -- Normal --
--- Better window navigation, I changed to vim-tmux plugin to manage pane switch
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -222,3 +222,11 @@ keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture
 -- avoid leap conflict with surround S in visual mode
 keymap("v", "-", "<Plug>(leap-forward)", opts)
 keymap("v", "_", "<Plug>(leap-backward)", opts)
+
+-- harpoon marker jump
+keymap("n", "<M-h>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
+keymap("n", "<M-l>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
+keymap("n", "<M-k>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
+keymap("n", "<M-j>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
+keymap("n", "<M-a>", "<cmd>:lua require('harpoon.mark').add_file()<cr>", opts)
+keymap("n", "<M-m>", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)

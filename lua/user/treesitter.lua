@@ -22,7 +22,7 @@ configs.setup({
 		enable = true,
 	},
   -- use '=' to indent
-	indent = { enable = true, disable = { "python", "css" } },
+  indent = { enable = false, disable = { "python", "css" } },
 
 	context_commentstring = {
 		enable = true,

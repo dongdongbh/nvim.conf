@@ -22,9 +22,9 @@ require("zen-mode").setup {
   gitsigns = { enabled = false }, -- disables git signs
   plugins = {
     tmux = { enabled = true },
-  },
-  alacritty = {
-    enabled = true,
-    font = "14", -- font size
+    alacritty = {
+        enabled = true,
+        font = "18", -- font size
+    },
   },
 }

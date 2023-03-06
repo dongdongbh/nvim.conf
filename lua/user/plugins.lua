@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use { "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"}      -- align code
 
   -- cmp plugins
-  use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" }         -- The completion plugin
+  use { "hrsh7th/nvim-cmp", commit = "feed47fd1da7a1bad2c7dca456ea19c8a5a9823a" }         -- The completion plugin
   use { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" }       -- buffer completions
   use { "hrsh7th/cmp-path", commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1" }         -- path completions
   use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" } -- snippet completions
@@ -102,7 +102,7 @@ return packer.startup(function(use)
     commit = "a54e7b11a2c6efc9ddd3f42e56cf7d9eed1a9683" }
   use {
     "zbirenbaum/copilot-cmp",
-    commit = "b732a58ac8b7287b981cd9f0d9c0f61e5e9d5760",
+    commit = "92535dfd9c430b49ca7d9a7da336c5db65826b65",
     --after = { "copilot.lua" }
   }
 
@@ -131,8 +131,9 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter-context", commit = "0dd5eae6dbf226107da2c2041ffbb695d9e267c1" }
 
   use {"kevinhwang91/rnvimr", commit = "cd0311d65cb3b8f8737b52f3294eb77d2fcec826"} -- ranger support
+  use {"ThePrimeagen/harpoon", commit = "f7040fd0c44e7a4010369136547de5604b9c22a1"} -- harpoon for fast buffer navigation
   use { "wakatime/vim-wakatime", commit = "4692ec3e77ade9e65171182296cca74352a39a12" } -- wakatime work time monitor
-  use { "folke/zen-mode.nvim", commit = "3c92f503823088862ca2a7809d1c7edc90fb92fa"} --zen mode
+  use { "folke/zen-mode.nvim", commit = "4f2e70d75b7ece1c2a7c852664db492537078996"} --zen mode
   use { "folke/which-key.nvim", commit = "6885b669523ff4238de99a7c653d47b081b5506d" }  -- which-key
 
   -- language related tools
@@ -150,11 +151,6 @@ return packer.startup(function(use)
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",
   }
-  -- use {
-  --   'phaazon/mind.nvim',
-  --   branch = 'v2.2',
-  --   requires = { 'nvim-lua/plenary.nvim' },
-  -- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

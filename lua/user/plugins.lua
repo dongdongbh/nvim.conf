@@ -131,6 +131,7 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter-context", commit = "0dd5eae6dbf226107da2c2041ffbb695d9e267c1" }
 
   use {"kevinhwang91/rnvimr", commit = "cd0311d65cb3b8f8737b52f3294eb77d2fcec826"} -- ranger support
+  use { 'rmagatti/auto-session' }
   use {"ThePrimeagen/harpoon", commit = "f7040fd0c44e7a4010369136547de5604b9c22a1"} -- harpoon for fast buffer navigation
   use { "wakatime/vim-wakatime", commit = "4692ec3e77ade9e65171182296cca74352a39a12" } -- wakatime work time monitor
   use { "folke/zen-mode.nvim", commit = "4f2e70d75b7ece1c2a7c852664db492537078996"} --zen mode

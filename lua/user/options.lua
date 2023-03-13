@@ -62,6 +62,8 @@ vim.opt.backupdir      = "~/.cache/vim"            -- Directory to store backup 
 -- vim.opt.undofile       = true                      -- enable save undo file
 vim.opt.undodir = vim.fn.expand('~/.undodir')
 -- vim.opt.guicursor    = ""               -- disable cursor blinking to speed up vim, give more space for displaying messages.
+vim.o.shadafile = os.getenv("HOME") .. '/.local/share/nvim/shada/main.shada:5m'
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- edit by sudo using suda plugin, currently there is a bug in neovim lsp make a
 -- probelm with lsp, see https://github.com/lambdalisue/suda.vim/issues/54
@@ -72,3 +74,4 @@ vim.opt.undodir = vim.fn.expand('~/.undodir')
 vim.opt.foldmethod = "expr"                       -- set up fold control by treesitter
 vim.opt.foldexpr   = "nvim_treesitter#foldexpr()" -- set up fold control by treesitter
 vim.opt.foldlevel  = 99                           -- avoid fold in start up
+

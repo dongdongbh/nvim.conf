@@ -175,6 +175,8 @@ keymap("n", "<M-o>", ":RnvimrToggle<CR>", opts)
 keymap("t", "<M-o>", "<C-\\><C-n>:RnvimrToggle<CR>", opts)
 
 
+-- source current lua file
+keymap("n", "<leader>r", ":luafile %<CR>", opts)
 -- Undo tree
 keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 

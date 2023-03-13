@@ -228,21 +228,25 @@ Learn more about vim, refer [vim-galore](https://github.com/mhinz/vim-galore).
 
 ### spelling
 
-  after `:set spell`, you enabled spell check.
+  After `:set spell`, you enabled spell check.
 
-  set locally by `:setlocal spell` and `:setlocal spell spelllang=<language>`
+  Set locally by `:setlocal spell` and `:setlocal spell spelllang=<language>`
 
-  `z=` show spell candidates
+  Set spell dictionary by `:set spellfile=~/.vim/spell/en.utf-8.add`
 
-  set spell dictionary by `:set spellfile=~/.vim/spell/en.utf-8.add`
+  Disable spell check by `:set nospell`
 
-  disable spell check by `:set nospell`
-
-`zg` add word under cursor to word list(dict)
+  `zg` add word under cursor to word list(dict)
 
   `zG` and word under cursor to internal word list
 
-  `C-x, C-s` do spell suggestion in insert.
+  `C-x, C-s` do spell suggestion in insert mode.
+
+  `z=` in normal mode to show suggestions
+
+  `1z=` chooses the first suggestion
+
+   `]s` and `[s` to cycle forward and back misspelled words in a buffer
 
 ### Jump
 

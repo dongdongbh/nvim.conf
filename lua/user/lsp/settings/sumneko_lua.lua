@@ -6,9 +6,10 @@ return {
         globals = { "vim" },
       },
       workspace = {
+        -- to avoid lua lsp find multiple location when using stow softlinks
         library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.stdpath "config" .. "/lua"] = true,
+          -- [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          -- [vim.fn.stdpath "config" .. "/lua"] = true,
         },
       },
       telemetry = {

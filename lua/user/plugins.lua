@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
   use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
   use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
-  use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
+  use { "goolord/alpha-nvim"}
   use { "tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a"}
   use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea"}
   use { "tpope/vim-abolish", commit = "3f0c8faadf0c5b68bcf40785c1c42e3731bfa522"}
@@ -109,7 +109,7 @@ return packer.startup(function(use)
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
   -- use { "TimUntersberger/neogit", commit = "c1a2a1aa5b4fd774dc26c53f7f256f1320c0ff15" }
-	use { "sindrets/diffview.nvim", commit = "503837ddd29d561b80e4a95ce7fc038701b3d4d0" }
+	use { "sindrets/diffview.nvim"}
 
   -- DAP
   -- use { "mfussenegger/nvim-dap", commit = "6b12294a57001d994022df8acbe2ef7327d30587" }
@@ -121,14 +121,13 @@ return packer.startup(function(use)
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-    commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90"
+--    commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90"
   }
   use {"AckslD/nvim-neoclip.lua", commit = "3e0b9a134838c7356d743f84a272c92410c47d8d"}
   use { "sudormrfbin/cheatsheet.nvim", commit = "9716f9aaa94dd1fd6ce59b5aae0e5f25e2a463ef" }
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" }
-  use { "nvim-treesitter/nvim-treesitter-context", commit = "0dd5eae6dbf226107da2c2041ffbb695d9e267c1" }
+  use { "nvim-treesitter/nvim-treesitter", commit = "226c1475a46a2ef6d840af9caa0117a439465500" }
 
   use {"kevinhwang91/rnvimr", commit = "cd0311d65cb3b8f8737b52f3294eb77d2fcec826"} -- ranger support
   use { 'rmagatti/auto-session' }

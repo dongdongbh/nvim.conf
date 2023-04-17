@@ -8,6 +8,7 @@ if not status_ok then
 	return
 end
 
+require'nvim-treesitter.install'.compilers = { 'gcc' }
 configs.setup({
   ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python",  "c", "cpp"}, -- put the language you want in this array
   -- ensure_installed = "all", -- one of "all" or a list of languages

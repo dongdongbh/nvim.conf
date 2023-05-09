@@ -1,0 +1,254 @@
+@document.meta
+title: dvplugins
+description: my neovim plugin help file
+author: dongdongbh
+categories: docs
+created: 2023-05-09
+version: 0.1
+@end
+
+*Press `gO` for a Table of Contents*.
+
+* Plugins
+
+** surround
+   {https://github.com/tpope/vim-surround}[surround]
+   
+   `ds` remove surround
+   
+   `cs` change surround
+   
+   `ys` add surround
+   
+   `yss` add surround to entire line
+   
+   in visual select mode, use `S` + surround symbols
+   
+** Comment
+   {https://github.com/numToStr/Comment.nvim}[Comment]
+   
+   - NORMAL mode
+   
+   @code help
+   `gcc` - Toggles the current line using linewise comment
+   `gbc` - Toggles the current line using blockwise comment
+   `[count]gcc` - Toggles the number of line given as a prefix-count using linewise
+   `[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
+   `gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
+   `gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
+   @end
+   
+   - VISUAL mode
+   
+   @code help
+   `gc` - Toggles the region using linewise comment
+   `gb` - Toggles the region using blockwise comment
+   @end
+   
+** toggleterm
+   {https://github.com/akinsho/toggleterm.nvim}[toggleterm]
+   
+   @code lua
+   keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
+   keymap("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", opts)
+   keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+   @end
+   
+** NvimTree
+   {https://github.com/nvim-tree/nvim-tree.lua}[NvimTree]
+   
+   @code lua
+   keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", opts)
+   keymap("n", "<leader>E", ":tabe <C-R>=expand('%:p:h') . '/' <CR>", opts)
+   keymap("n", "<leader>.", ":lcd %:p:h", opts)
+   @end
+   
+** vim-easy-align
+   {https://github.com/junegunn/vim-easy-align}[vim-easy-align]
+   
+   @code lua
+   keymap("x", "ga", ":EasyAlign<CR>", opts)
+   keymap("n", "ga", ":EasyAlign<CR>", opts)
+   @end
+   
+** nvim-cmp
+   {https://github.com/hrsh7th/nvim-cmp}[nvim-cmp]
+   
+   @code lua
+   -- stop cmp in current buffer in 'insert' mode
+   keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
+   keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
+   @end
+   
+** leap.vim
+   {https://github.com/ggandor/leap.nvim}[leap.vim]
+   
+   a fast search plugin, similar to sneak.vim, easy motion.
+   
+   Initiate the search in the forward (s) or backward (S) direction,
+   or in the other windows (gs).
+   
+   `cl` is equivalent to `s`, and `cc` is equivalent to `S`
+   
+** telescope.nvim
+   {https://github.com/nvim-telescope/telescope.nvim}[telescope.nvim]
+   
+   @code lua
+   keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+   keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+   keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+   keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+   keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+   keymap("n", "<leader>fr", ":Telescope neoclip<CR>", opts)
+   keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
+   @end
+   
+** neoclip
+   {https://github.com/AckslD/nvim-neoclip.lua}[neoclip]
+   @code lua
+   neoclip.setup(
+     {
+       keys = {
+         telescope = {
+           i = {
+             select = '<cr>',
+             paste = '<c-p>',
+             paste_behind = '<c-u>', -- change defalut since conflict with telescope
+             replay = '<c-q>',  -- replay a macro
+             delete = '<c-d>',  -- delete an entry
+             custom = {},
+           },
+         }
+       }
+     })
+   @end
+   
+** nvim-lsp-installer
+   {https://github.com/williamboman/nvim-lsp-installer}[nvim-lsp-installer]
+   
+   attach installed lsp server by adding server name in `/lua/lsp/init.lua`.
+   
+** lsp 
+   {https://github.com/neovim/nvim-lspconfig#keybindings-and-completion}[lsp]
+   
+   @code lua
+   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+   keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+   keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+   keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+   keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
+   keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+   keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+   keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+   keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+   keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+   keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+   @end
+   
+** null-ls
+   {https://github.com/jose-elias-alvarez/null-ls.nvim}[null-ls]
+   
+   `null-ls` is a tool to extend services for lsp, such as linter, formating, diagnose and code action tools.
+   
+   not that these tools should be installed on your computer then add them to `null-ls.lua` setting.
+   
+** undotree
+   {https://github.com/mbbill/undotree}[undotree]
+   
+   show undo tree
+   
+   map("n", "<leader>u", ":UndotreeToggle<CR>", opts)
+   
+** Neogit
+  {https://github.com/TimUntersberger/neogit}[Neogit]
+
+    @code vim
+    :Neogit " uses tab
+    :Neogit kind=<kind> " override kind
+    :Neogit cwd=<cwd> " override cwd
+    :Neogit commit" open commit popup
+    @end
+
+    With diffview integration enabled
+    | d | Open `diffview.nvim` at hovered file |
+    | D (TODO) | Open diff popup |
+
+    @code lua
+    keymap("n", "<leader>gs", "<cmd> lua require('neogit').open({})<CR>", opts)
+    keymap("n", "<leader>ga", "<cmd>!git fetch --all<CR>", opts)
+    @end
+
+** Diffview
+   {https://github.com/sindrets/diffview.nvim}[Diffview]
+   
+   `:DiffviewOpen [git rev] [options] [ -- {paths...}]`
+   
+   `:[range]DiffviewFileHistory [paths] [options]`
+***  merge with diffview
+     `:h diffview-merge-tool` for more.
+     -  `<leader>co`: Choose the OURS version of the conflict.
+      -  `<leader>ct`: Choose the THEIRS version of the conflict.
+      -  `<leader>cb`: Choose the BASE version of the conflict.
+      -  `<leader>ca`: Choose all versions of the conflict (effectively
+      -        just deletes the markers, leaving all the content).
+      -  `dx`: Choose none of the versions of the conflict (delete the
+         conflict region).
+     
+** vim-tmux-navigator
+   {https://github.com/christoomey/vim-tmux-navigator}[vim-tmux-navigator]
+   
+   -  `<ctrl-h>` => Left
+    -  `<ctrl-j>` => Down
+    -  `<ctrl-k>` => Up
+    -  `<ctrl-l>` => Right
+    -  `<ctrl-\>` => Previous split
+   
+       *Note* - you don't need to use your tmux `prefix` key sequence before using
+       the mappings.
+   
+** vim-abolish
+   {https://github.com/tpope/vim-abolish}[vim-abolish]
+   
+   three functions
+   
+   1. Abbreviation
+   
+   you may misspell `seperate` to `separate`, you can use
+   
+   @code vim
+   :iabbrev  seperate  separate
+   @end
+   
+   But it not covers all cases, e.g. `Seperate Separate`, `SEPERATE SEPARATE` etc.
+   
+   @code vim
+   :Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}
+   @end
+   
+   2. Substitution
+   
+   @code vim
+   :%Subvert/facilit{y,ies}/building{,s}/g
+   :Subvert/address{,es}/reference{,s}/g
+   :Subvert/blog{,s}/post{,s}/g
+   :Subvert/child{,ren}/adult{,s}/g
+   :Subvert/di{e,ce}/spinner{,s}/g
+   @end
+   
+   3. Coercion
+   Want to turn `fooBar` into `foo_bar`? Press `crs` (coerce to snake_case).
+   MixedCase (`crm`), camelCase (`crc`), snake_case (`crs`), UPPER_CASE (`cru`),
+   dash-case (`cr-`), dot.case (`cr.`), space case (`cr<space>`),
+   and Title Case (`crt`) are all just 3 keystrokes away.
+   
+** vim-grammarous
+   {https://github.com/rhysd/vim-grammarous}[vim-grammarous]
+   
+   :GrammarousCheck
+
+#comment
+vim:tw=100:ft=norg:norl:conceallevel=0:concealcursor=:

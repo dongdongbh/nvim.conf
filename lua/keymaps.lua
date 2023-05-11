@@ -7,6 +7,9 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ","
 
+
+
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -138,16 +141,9 @@ keymap("n", "<leader>.", ":lcd %:p:h", opts)
 -- save with sudo in command_mode
 -- keymap("c", "W!!", ":w !sudo tee % >/dev/null<Cr>:e!<Cr>", opts)
 
--- repeat
--- Add [count] blank lines above/below cursor and make it repeatable
---map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>', opts)
---map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>', opts)
-vim.cmd([[
-nnoremap <silent> <Plug>AddBlackLineUp :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>=:silent! call repeat#set("\<Plug>AddBlackLineUp", v:count)<CR>
-nmap [<Space> <Plug>AddBlackLineUp  
-nnoremap <silent> <Plug>AddBlackLineDown :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>=:silent! call repeat#set("\<Plug>AddBlackLineDown", v:count)<CR>
-nmap ]<Space> <Plug>AddBlackLineDown  
-]])
+-- fast add blank lines
+keymap('n', '[<space>', ':<C-u>lua require("utils.addlines").add_blank_line("above")<CR>', opts)
+keymap('n', ']<space>', ':<C-u>lua require("utils.addlines").add_blank_line("below")<CR>', opts)
 
 -- Plugins --
 

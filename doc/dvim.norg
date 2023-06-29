@@ -221,6 +221,18 @@ version: 0.1
 
     `Ctrl + o` - go to older position in jump list
 
+*** quickfix list
+
+    @code
+    :copen " Open the quickfix window
+    :ccl   " Close it
+    :cw    " Open it if there are "errors", close it otherwise (some people prefer this)
+    :cn    " Go to the next error in the window
+    :cp    " Go to the previous error in the window
+    :cnf   " Go to the first error in the next file
+    :.cc   " Go to error under cursor (if cursor is in quickfix window)
+    @end
+
 *** insert-completion
 
     `ctrl+h` delete character before cursor

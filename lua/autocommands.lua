@@ -8,6 +8,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+-- fix <cr> problem in quickfix list
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "quickfix",
+  callback = function (event)
+  vim.api.nvim_buf_set_keymap(event.buf, "n", "<CR>", "<CR>", { noremap = true })
+end
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()

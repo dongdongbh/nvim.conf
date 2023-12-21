@@ -9,6 +9,7 @@ M.servers = {
   "yamlls",
   "clangd",
   "cmake",
+  "hls",
 }
 
 return M

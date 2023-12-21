@@ -22,7 +22,7 @@ function M.config()
         config = {
           workspaces = {
             work = "~/Documents/notes/work",
-            personal = "~/Document/notes/personal",
+            personal = "~/Documents/notes/personal",
           },
           default_workspace = "work",
           index = "index.norg", -- The name of the main (root) .norg file

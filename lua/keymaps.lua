@@ -20,15 +20,15 @@ vim.g.mapleader = ","
 
 -- Normal --
 -- force not use arrow keys
-keymap("n", "<Up>", "<NOP>", opts)
-keymap("n", "<Down>", "<NOP>", opts)
-keymap("n", "<Left>", "<NOP>", opts)
-keymap("n", "<Right>", "<NOP>", opts)
-
-keymap("v", "<Up>", "<NOP>", opts)
-keymap("v", "<Down>", "<NOP>", opts)
-keymap("v", "<Left>", "<NOP>", opts)
-keymap("v", "<Right>", "<NOP>", opts)
+-- keymap("n", "<Up>", "<NOP>", opts)
+-- keymap("n", "<Down>", "<NOP>", opts)
+-- keymap("n", "<Left>", "<NOP>", opts)
+-- keymap("n", "<Right>", "<NOP>", opts)
+--
+-- keymap("v", "<Up>", "<NOP>", opts)
+-- keymap("v", "<Down>", "<NOP>", opts)
+-- keymap("v", "<Left>", "<NOP>", opts)
+-- keymap("v", "<Right>", "<NOP>", opts)
 
 -- Bring search results to midscreen
 keymap("n", "n", "nzzzv", opts)

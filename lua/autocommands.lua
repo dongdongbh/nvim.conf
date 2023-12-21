@@ -16,6 +16,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  command = [[
+    setlocal bufhidden=unload |
+    wincmd L |
+    vertical resize 75
+  ]]
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()

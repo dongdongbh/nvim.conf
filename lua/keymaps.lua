@@ -30,6 +30,12 @@ vim.g.mapleader = ","
 -- keymap("v", "<Left>", "<NOP>", opts)
 -- keymap("v", "<Right>", "<NOP>", opts)
 
+-- alt + htsn for window navigation for engram keyboard
+keymap('n', '<A-h>', '<C-w>h', opts)
+keymap('n', '<A-t>', '<C-w>j', opts)
+keymap('n', '<A-s>', '<C-w>k', opts)
+keymap('n', '<A-n>', '<C-w>l', opts)
+
 -- Bring search results to midscreen
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
@@ -61,8 +67,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-h>", ":bnext<CR>", opts)
+keymap("n", "<S-n>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)

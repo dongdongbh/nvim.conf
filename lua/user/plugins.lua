@@ -32,23 +32,10 @@ return {
     event = "Bufenter",
     commit = "12dd6316974f71ce333e360c0260b4e1f81169c3"
   },
-  {'nvim-telescope/telescope-fzf-native.nvim',
-    event = "Bufenter",
-    build = 'make',
-    lazy = false,
-    init = function()
-      require('telescope').load_extension('fzf')
-    end,
-  },
   {"kevinhwang91/rnvimr",
     event = "VeryLazy",
     commit = "cd0311d65cb3b8f8737b52f3294eb77d2fcec826"
   }, -- ranger support
-  { "wakatime/vim-wakatime",
-    event = "VeryLazy",
-    disable=true,
-    commit = "4692ec3e77ade9e65171182296cca74352a39a12"
-  }, -- wakatime work time monitor
   {"ThePrimeagen/harpoon",
     event = "Bufenter",
     commit = "f7040fd0c44e7a4010369136547de5604b9c22a1"
@@ -57,9 +44,5 @@ return {
     event = "Bufenter",
     lazy = false,
     commit = "5b9286a40ea2020352280caeb713515badb03d99"
-  },
-  {"sudormrfbin/cheatsheet.nvim",
-    cmd = "Cheatsheet",
-    commit = "9716f9aaa94dd1fd6ce59b5aae0e5f25e2a463ef"
   },
 }

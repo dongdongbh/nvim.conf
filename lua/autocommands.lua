@@ -25,6 +25,11 @@ vim.api.nvim_create_autocmd("FileType", {
   ]]
 })
 
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.keymap",
+  command = "set filetype=c",
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()

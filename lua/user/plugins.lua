@@ -11,11 +11,6 @@ return {
     event = "Bufenter",
     commit = "3f0c8faadf0c5b68bcf40785c1c42e3731bfa522"
   },
-  { "rrethy/vim-hexokinase",
-    commit = "62324b43ea858e268fb70665f7d012ae67690f43",
-    build = "make hexokinase",
-    event = "VeryLazy",
-  },                                      -- gui color
   { "mbbill/undotree",
     event = "Bufenter",
     commit = "bd60cb564e3c3220b35293679669bb77af5f389d"

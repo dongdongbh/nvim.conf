@@ -1,7 +1,6 @@
 local M = {
   "zbirenbaum/copilot-cmp",
   event = "InsertEnter",
-  commit = "99467081478aabe4f1183a19a8ba585e511adc20",
   dependencies = { "zbirenbaum/copilot.lua" },
 }
 

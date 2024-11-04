@@ -26,7 +26,6 @@ return {
   },
   { "lambdalisue/suda.vim",
     cmd = {"SudaWrite", "SudaRead"},
-    commit = "2fc45dc4bcafb245b613ebd6847a244924735cc6"
   },
   { "junegunn/vim-easy-align",
     event = "Bufenter",
@@ -51,15 +50,12 @@ return {
   }, -- wakatime work time monitor
   {"ThePrimeagen/harpoon",
     event = "Bufenter",
-    commit = "f7040fd0c44e7a4010369136547de5604b9c22a1"
   }, -- harpoon for fast buffer navigation
   {"AckslD/nvim-neoclip.lua",
     event = "Bufenter",
     lazy = false,
-    commit = "5b9286a40ea2020352280caeb713515badb03d99"
   },
   {"sudormrfbin/cheatsheet.nvim",
     cmd = "Cheatsheet",
-    commit = "9716f9aaa94dd1fd6ce59b5aae0e5f25e2a463ef"
   },
 }

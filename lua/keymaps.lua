@@ -4,9 +4,8 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ","
-
+vim.g.maplocalleader = " "
 
 
 
@@ -43,7 +42,7 @@ keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
 -- keymap("n", "<C-k>", ":cnext<CR>zz", opts)
 
 -- break line by ctrl + m
-keymap("n", "<C-m>", "i<CR><ESC>", opts)
+keymap("n", "<C-j>", "i<CR><ESC>", opts)
 -- keymap("n", "<C-j>", "i<CR><ESC>", opts)
 
 -- command mode navigate like bash
@@ -108,9 +107,9 @@ keymap("n", "<Leader>Y", '"+Y', opts)
 keymap("i", "<C-s>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
 
 -- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- Stay in vision mode after indent, conflict with neorg, set in autocommands
+-- keymap("v", "<", "<gv", opts)
+-- keymap("v", ">", ">gv", opts)
 
 -- sort lines
 keymap("v", "<leader>s", ":sort u", opts)
@@ -179,6 +178,7 @@ keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+
 
 -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)

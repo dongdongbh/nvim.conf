@@ -35,6 +35,16 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- Automatically close tab/vim when nvim-tree is the last window in the tab
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype ~= "norg" then
+      vim.keymap.set("v", "<", "<gv", { buffer = true })
+      vim.keymap.set("v", ">", ">gv", { buffer = true })
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd "tabdo wincmd ="

@@ -1,7 +1,6 @@
 -- Lua
 local M = { "sindrets/diffview.nvim",
   cmd = "DiffviewOpen",
-  commit = "63720aa5a70ce4aa386be407d0e612cd9e63861a",
 }
 function M.config()
   local actions = require("diffview.actions")

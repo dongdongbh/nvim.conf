@@ -1,30 +1,32 @@
 local M = {
   "nvim-neorg/neorg",
+  -- lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+  version = "*", -- Pin Neorg to the latest stable release
+  config = true,
   ft = "norg",
   cmd = "Neorg",
-  build = ":Neorg sync-parsers",
-  dependencies = { { "nvim-lua/plenary.nvim" } },
 }
 
 function M.config()
   require('neorg').setup {
     load = {
-      ["core.defaults"] = {}, -- Loads default behaviour
-      ["core.concealer"] = {}, -- Adds pretty icons to your documents
-      ["core.export"] = {}, -- export 
+      ["core.defaults"] = {},
+      ["core.concealer"] = {},
       ["core.keybinds"] = {
         config = {
           default_keybinds = true,
-          neorg_leader = ','
+          neorg_leader = ' ',
         }
       },
-      ["core.dirman"] = { -- Manages Neorg workspaces
+      ["core.dirman"] = {
         config = {
           workspaces = {
             work = "~/Documents/notes/work",
             personal = "~/Documents/notes/personal",
+            course = "~/Documents/notes/course",
+            research = "~/Documents/notes/research",
           },
-          default_workspace = "work",
+          default_workspace = "course",
           index = "index.norg", -- The name of the main (root) .norg file
         },
       },

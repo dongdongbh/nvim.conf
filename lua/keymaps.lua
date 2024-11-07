@@ -4,9 +4,8 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ","
-
+vim.g.maplocalleader = " "
 
 
 
@@ -30,12 +29,6 @@ vim.g.mapleader = ","
 -- keymap("v", "<Left>", "<NOP>", opts)
 -- keymap("v", "<Right>", "<NOP>", opts)
 
--- alt + htsn for window navigation for engram keyboard
-keymap('n', '<A-h>', '<C-w>h', opts)
-keymap('n', '<A-t>', '<C-w>j', opts)
-keymap('n', '<A-s>', '<C-w>k', opts)
-keymap('n', '<A-n>', '<C-w>l', opts)
-
 -- Bring search results to midscreen
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
@@ -49,7 +42,7 @@ keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
 -- keymap("n", "<C-k>", ":cnext<CR>zz", opts)
 
 -- break line by ctrl + m
-keymap("n", "<C-m>", "i<CR><ESC>", opts)
+keymap("n", "<C-j>", "i<CR><ESC>", opts)
 -- keymap("n", "<C-j>", "i<CR><ESC>", opts)
 
 -- command mode navigate like bash
@@ -67,8 +60,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-h>", ":bnext<CR>", opts)
-keymap("n", "<S-n>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -114,9 +107,9 @@ keymap("n", "<Leader>Y", '"+Y', opts)
 keymap("i", "<C-s>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
 
 -- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- Stay in vision mode after indent, conflict with neorg, set in autocommands
+-- keymap("v", "<", "<gv", opts)
+-- keymap("v", ">", ">gv", opts)
 
 -- sort lines
 keymap("v", "<leader>s", ":sort u", opts)
@@ -185,6 +178,7 @@ keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+
 
 -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)

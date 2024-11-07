@@ -1,6 +1,5 @@
 local M = { "ggandor/leap.nvim",
   event = "BufEnter",
-  commit = "98a72ad93c629c49bd7127d342960cc1b159b620",
 }
 
 function M.config()

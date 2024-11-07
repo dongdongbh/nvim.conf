@@ -1,7 +1,6 @@
 local M = {
   "folke/zen-mode.nvim",
   cmd = "ZenMode",
-  commit = "4f2e70d75b7ece1c2a7c852664db492537078996",
 }
 
 function M.config()

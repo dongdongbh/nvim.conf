@@ -1,16 +1,37 @@
 local M = {
   "lewis6991/gitsigns.nvim",
-  commit = "ec4742a7eebf68bec663041d359b95637242b5c3",
   event = "BufReadPre",
 }
 
+-- Define highlights for GitSigns
+vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'DiffAdd' })
+vim.api.nvim_set_hl(0, 'GitSignsAddLn', { link = 'DiffAdd' })
+vim.api.nvim_set_hl(0, 'GitSignsAddNr', { link = 'DiffAdd' })
+
+vim.api.nvim_set_hl(0, 'GitSignsChange', { link = 'DiffChange' })
+vim.api.nvim_set_hl(0, 'GitSignsChangeLn', { link = 'DiffChange' })
+vim.api.nvim_set_hl(0, 'GitSignsChangeNr', { link = 'DiffChange' })
+
+vim.api.nvim_set_hl(0, 'GitSignsChangedelete', { link = 'DiffChange' })
+vim.api.nvim_set_hl(0, 'GitSignsChangedeleteLn', { link = 'DiffChange' })
+vim.api.nvim_set_hl(0, 'GitSignsChangedeleteNr', { link = 'DiffChange' })
+
+vim.api.nvim_set_hl(0, 'GitSignsDelete', { link = 'DiffDelete' })
+vim.api.nvim_set_hl(0, 'GitSignsDeleteLn', { link = 'DiffDelete' })
+vim.api.nvim_set_hl(0, 'GitSignsDeleteNr', { link = 'DiffDelete' })
+
+vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { link = 'DiffDelete' })
+vim.api.nvim_set_hl(0, 'GitSignsTopdeleteLn', { link = 'DiffDelete' })
+vim.api.nvim_set_hl(0, 'GitSignsTopdeleteNr', { link = 'DiffDelete' })
+
+-- Configure GitSigns without the deprecated options
 M.opts = {
   signs = {
-    add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "󰐊", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    topdelete = { hl = "GitSignsDelete", text = "󰐊", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    add = { text = "▎" },
+    change = { text = "▎" },
+    delete = { text = "󰐊" },
+    topdelete = { text = "󰐊" },
+    changedelete = { text = "▎" },
   },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   watch_gitdir = {
@@ -37,3 +58,4 @@ M.opts = {
 }
 
 return M
+

@@ -42,7 +42,7 @@ keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
 -- keymap("n", "<C-k>", ":cnext<CR>zz", opts)
 
 -- break line by ctrl + m
-keymap("n", "<C-j>", "i<CR><ESC>", opts)
+keymap("n", "<C-i>", "i<CR><ESC>", opts)
 -- keymap("n", "<C-j>", "i<CR><ESC>", opts)
 
 -- command mode navigate like bash

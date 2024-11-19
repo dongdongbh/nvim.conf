@@ -12,6 +12,8 @@ function M.config()
     load = {
       ["core.defaults"] = {},
       ["core.concealer"] = {},
+      ["core.export"] = {},
+      ["core.latex.renderer"] = {},
       ["core.keybinds"] = {
         config = {
           default_keybinds = true,

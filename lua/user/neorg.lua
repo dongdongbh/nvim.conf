@@ -26,7 +26,7 @@ function M.config()
             course = "~/Documents/notes/course",
             research = "~/Documents/notes/research",
           },
-          default_workspace = "course",
+          default_workspace = "research",
           index = "index.norg", -- The name of the main (root) .norg file
         },
       },

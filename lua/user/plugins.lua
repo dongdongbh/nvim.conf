@@ -8,10 +8,6 @@ return {
   { "tpope/vim-abolish",
     event = "Bufenter",
   },
-  { "rrethy/vim-hexokinase",
-    build = "make hexokinase",
-    event = "VeryLazy",
-  },                                      -- gui color
   { "mbbill/undotree",
     event = "Bufenter",
   },

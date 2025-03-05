@@ -21,7 +21,7 @@ local prompts = {
 
 local M = {
   "CopilotC-Nvim/CopilotChat.nvim",
-  branch = "canary", -- Use the canary branch if you want to test the latest features but it might be unstable
+  branch = "main", -- Use the canary branch if you want to test the latest features but it might be unstable
   dir = IS_DEV and "~/Projects/research/CopilotChat.nvim" or nil,
   dependencies = {
     { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions

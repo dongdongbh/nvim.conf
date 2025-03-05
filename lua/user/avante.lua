@@ -5,14 +5,13 @@ local M = {
   version = false, -- Set this to "*" to always pull the latest release version, or false to update to the latest code changes.
   opts = {
     -- Add your options here. For example:
-    provider = "openai",
-    openai = {
-      endpoint = "https://api.openai.com/v1",
-      model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-      timeout = 30000, -- timeout in milliseconds
-      temperature = 0, -- adjust if needed
-      max_tokens = 4096,
-      -- reasoning_effort = "high" -- only supported for certain reasoning models (e.g., o1, etc.)
+    provider = "copilotclaude",
+    vendors = {
+      copilotclaude = {
+        __inherited_from = "copilot",
+        model = "claude-3.5-sonnet",
+        max_tokens = 4096,
+      },
     },
   },
   build = "make", -- For building from source. Adjust as needed.
@@ -37,7 +36,7 @@ local M = {
           drag_and_drop = {
             insert_mode = true,
           },
-          use_absolute_path = true, -- required for Windows users
+          -- use_absolute_path = true, -- required for Windows users
         },
       },
     },

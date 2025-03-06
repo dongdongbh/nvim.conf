@@ -38,10 +38,6 @@ return {
   {"kevinhwang91/rnvimr",
     event = "VeryLazy",
   }, -- ranger support
-  { "wakatime/vim-wakatime",
-    event = "VeryLazy",
-    disable=true,
-  }, -- wakatime work time monitor
   {"ThePrimeagen/harpoon",
     event = "Bufenter",
   }, -- harpoon for fast buffer navigation

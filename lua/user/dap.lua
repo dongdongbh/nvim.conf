@@ -1,10 +1,26 @@
 local M = {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
-  enabled = false;
+  enabled = true;
+  dependencies = {
+    "theHamsta/nvim-dap-virtual-text",
+  },
 }
 
+local function get_python_path()
+  local conda_prefix = os.getenv("CONDA_PREFIX")
+  local python_path = "python"
+  if conda_prefix then
+    python_path = conda_prefix .. "/bin/python"
+  end
+  -- vim.notify("DAP is using Python path: " .. python_path)
+  return python_path
+end
+
+
 function M.config()
+  require("nvim-dap-virtual-text").setup()
+
   local dap = require "dap"
 
   local dap_ui_status_ok, dapui = pcall(require, "dapui")
@@ -35,6 +51,11 @@ function M.config()
       -- detached = false,
     },
   }
+  dap.adapters.python = {
+    type = "executable",
+    command = "python",
+    args = { "-m", "debugpy.adapter" },
+  }
   dap.configurations.c = {
     {
       name = "Launch file",
@@ -52,16 +73,16 @@ function M.config()
       stopOnEntry = false,
     },
   }
+  dap.configurations.python = {
+    {
+      type = "python",
+      request = "launch",
+      name = "Launch file (conda)",
+      program = "${file}",
+      pythonPath = get_python_path,
+    },
+  }
 end
 
-M = {
-  "ravenxrz/DAPInstall.nvim",
-  commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de",
-  lazy = true,
-  config = function()
-    require("dap_install").setup {}
-    require("dap_install").config("python", {})
-  end,
-}
 
 return M

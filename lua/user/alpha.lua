@@ -1,7 +1,7 @@
 local M = {
   "goolord/alpha-nvim",
   event = "VimEnter",
-  dependencies = {"nvim-neorg/neorg"},
+  dependencies = { "nvim-neorg/neorg" },
 }
 
 function M.config()

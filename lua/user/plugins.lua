@@ -1,30 +1,39 @@
 return {
-  { "tpope/vim-repeat",
+  {
+    "tpope/vim-repeat",
     event = "Bufenter",
   },
-  { "tpope/vim-surround",
+  {
+    "tpope/vim-surround",
     event = "Bufenter",
   },
-  { "tpope/vim-abolish",
+  {
+    "tpope/vim-abolish",
     event = "Bufenter",
   },
-  { "rrethy/vim-hexokinase",
+  {
+    "rrethy/vim-hexokinase",
     build = "make hexokinase",
     event = "VeryLazy",
-  },                                      -- gui color
-  { "mbbill/undotree",
+  }, -- gui color
+  {
+    "mbbill/undotree",
     event = "Bufenter",
   },
-  { "christoomey/vim-tmux-navigator",
+  {
+    "christoomey/vim-tmux-navigator",
     event = "Bufenter",
   },
-  { "lambdalisue/suda.vim",
-    cmd = {"SudaWrite", "SudaRead"},
+  {
+    "lambdalisue/suda.vim",
+    cmd = { "SudaWrite", "SudaRead" },
   },
-  { "junegunn/vim-easy-align",
+  {
+    "junegunn/vim-easy-align",
     event = "Bufenter",
   },
-  {'nvim-telescope/telescope-fzf-native.nvim',
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
     event = "Bufenter",
     build = 'make',
     lazy = false,
@@ -32,20 +41,27 @@ return {
       require('telescope').load_extension('fzf')
     end,
   },
-  {"echasnovski/mini.nvim",
+  {
+    "echasnovski/mini.nvim",
     event = "VeryLazy",
   },
-  {"kevinhwang91/rnvimr",
+  {
+    "kevinhwang91/rnvimr",
     event = "VeryLazy",
   }, -- ranger support
-  {"ThePrimeagen/harpoon",
+  {
+    "ThePrimeagen/harpoon",
     event = "Bufenter",
   }, -- harpoon for fast buffer navigation
-  {"AckslD/nvim-neoclip.lua",
+  {
+    "AckslD/nvim-neoclip.lua",
     event = "Bufenter",
-    lazy = false,
+    config = function()
+      require('neoclip').setup()
+    end,
   },
-  {"sudormrfbin/cheatsheet.nvim",
+  {
+    "sudormrfbin/cheatsheet.nvim",
     cmd = "Cheatsheet",
   },
 }

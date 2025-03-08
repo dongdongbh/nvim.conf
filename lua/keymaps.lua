@@ -7,8 +7,6 @@ local opts = { silent = true }
 vim.g.mapleader = ","
 vim.g.maplocalleader = " "
 
-
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -70,25 +68,25 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
-keymap("v", "p", 'P', opts)
+keymap("v", "p", "P", opts)
 keymap("x", "<Leader>p", '"_dP', opts)
 
 -- delete to blank hole
-keymap("n", "<Leader>d", '"_d', opts)
-keymap("v", "<Leader>d", '"_d', opts)
+keymap("n", "<Leader>D", '"_d', opts)
+keymap("v", "<Leader>D", '"_d', opts)
 
 -- Y to yank to line end
 keymap("n", "Y", "y$", opts)
 
 -- Set key-mapping for dealing with two alphabetical registers easily
 -- in visual mode !!!
-keymap("v", "<Leader>a", '"ay', opts)
-keymap("v", "<Leader>A", '"Ay', opts)
+keymap("v", "<Leader>m", '"my', opts)
+keymap("v", "<Leader>M", '"My', opts)
 --map("v", "<Leader>x", '"xy', opts)
 --map("v", "<Leader>X", '"Xy', opts)
 
-keymap("n", "<Leader>a", '"ap', opts)
-keymap("n", "<Leader>A", '"Ap', opts)
+keymap("n", "<Leader>m", '"mp', opts)
+keymap("n", "<Leader>M", '"Mp', opts)
 -- paste last yanked
 keymap("n", "<Leader>0", '"0p', opts)
 
@@ -96,7 +94,6 @@ keymap("n", "<Leader>0", '"0p', opts)
 keymap("v", "<Leader>y", '"+y', opts)
 keymap("n", "<Leader>Y", '"+Y', opts)
 --map("n", "<Leader>p", '"+p', opts)
-
 
 -- Insert --
 -- I remap Cap key to esc, so dont need this
@@ -129,7 +126,6 @@ keymap("v", "Q", ":norm @q<cr>", opts)
 keymap("n", "<leader>j", ":lprev<CR>zz", opts)
 keymap("n", "<leader>k", ":lnext<CR>zz", opts)
 
-
 -- Reformat whole file
 keymap("n", "g=", "gg=G''", opts)
 
@@ -141,8 +137,8 @@ keymap("n", "<leader>.", ":lcd %:p:h", opts)
 -- keymap("c", "W!!", ":w !sudo tee % >/dev/null<Cr>:e!<Cr>", opts)
 
 -- fast add blank lines
-keymap('n', '[<space>', ':<C-u>lua require("utils.addlines").add_blank_line("above")<CR>', opts)
-keymap('n', ']<space>', ':<C-u>lua require("utils.addlines").add_blank_line("below")<CR>', opts)
+keymap("n", "[<space>", ':<C-u>lua require("utils.addlines").add_blank_line("above")<CR>', opts)
+keymap("n", "]<space>", ':<C-u>lua require("utils.addlines").add_blank_line("below")<CR>', opts)
 
 -- Plugins --
 
@@ -175,10 +171,6 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope neoclip<CR>", opts)
 keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
-
--- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-
 
 -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
@@ -213,3 +205,6 @@ keymap("n", "<M-k>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap("n", "<M-j>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 keymap("n", "<M-a>", "<cmd>:lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "<M-m>", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
+
+-- Oil file manager
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })

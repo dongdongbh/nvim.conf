@@ -1,4 +1,5 @@
-local M = { "ggandor/leap.nvim",
+local M = {
+  "ggandor/leap.nvim",
   event = "BufEnter",
 }
 

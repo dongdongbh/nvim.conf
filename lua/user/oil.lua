@@ -10,10 +10,6 @@ local M = {
 
 function M.config()
   require("oil").setup(M.opts)
-
-  -- Mimic vim-vinegar's parent directory navigation:
-  vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 end
 
 return M
-

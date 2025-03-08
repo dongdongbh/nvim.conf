@@ -12,10 +12,8 @@ function M.config()
     debug = false,
     sources = {
       -- Python
-      formatting.black,   -- Python code formatter
-      formatting.isort,   -- Python import sorter
-      diagnostics.pylint, -- Python linter
-      diagnostics.mypy,   -- Python type checker
+      formatting.black, -- Python code formatter
+      formatting.isort, -- Python import sorter
 
       -- Lua
       formatting.stylua, -- Lua code formatter

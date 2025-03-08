@@ -9,10 +9,19 @@ local M = {
     vendors = {
       copilotclaude = {
         __inherited_from = "copilot",
-        model = "claude-3.5-sonnet",
+        model = "claude-3.7-sonnet",
         max_tokens = 4096,
       },
     },
+    -- provider = "openai",
+    -- openai = {
+    --   endpoint = "https://api.openai.com/v1",
+    --   model = "o3-mini", -- your desired model (or use gpt-4o, etc.)
+    --   timeout = 30000, -- timeout in milliseconds
+    --   temperature = 0, -- adjust if needed
+    --   max_tokens = 4096,
+    --   -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
+    -- },
   },
   build = "make", -- For building from source. Adjust as needed.
   dependencies = {
@@ -20,12 +29,12 @@ local M = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "echasnovski/mini.pick",          -- for file_selector provider mini.pick
-    "nvim-telescope/telescope.nvim",  -- for file_selector provider telescope
-    "hrsh7th/nvim-cmp",               -- autocompletion for avante commands and mentions
-    "ibhagwan/fzf-lua",               -- for file_selector provider fzf
-    "nvim-tree/nvim-web-devicons",    -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua",         -- for providers='copilot'
+    "echasnovski/mini.pick",         -- for file_selector provider mini.pick
+    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+    "ibhagwan/fzf-lua",              -- for file_selector provider fzf
+    "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
+    "zbirenbaum/copilot.lua",        -- for providers='copilot'
     {
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",
@@ -55,5 +64,3 @@ function M.config()
 end
 
 return M
-
-

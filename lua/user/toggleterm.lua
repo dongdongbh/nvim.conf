@@ -10,7 +10,15 @@ function M.config()
   end
 
   toggleterm.setup {
-    size = 20,
+    size = function(term)
+      if term.direction == "horizontal" then
+        return 10                              -- height for horizontal split terminals
+      elseif term.direction == "vertical" then
+        return math.floor(vim.o.columns * 0.4) -- width for vertical splits
+      else
+        return 20                              -- default for floating (or any other)
+      end
+    end,
     open_mapping = [[<c-\>]],
     hide_numbers = true,
     shade_terminals = true,
@@ -18,7 +26,7 @@ function M.config()
     start_in_insert = true,
     insert_mappings = true,
     persist_size = true,
-    direction = "float",
+    direction = "horizontal", -- set default as horizontal split
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {
@@ -28,7 +36,6 @@ function M.config()
 
   function _G.set_terminal_keymaps()
     local opts = { noremap = true }
-    -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
     vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
     vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
     vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
@@ -37,12 +44,11 @@ function M.config()
 
   vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
 
-  function _LAZYGIT_TOGGLE()
-    lazygit:toggle()
-  end
+  -- Keybindings to override the default orientation
+  vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "Toggle horizontal terminal" })
+  vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "Toggle vertical terminal" })
+  vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
 end
 
 return M

@@ -28,22 +28,22 @@ function M.config()
 			-- Shell
 			sh = { "shfmt" },
 		},
-		format_on_save = {
-			timeout_ms = 500,
-			lsp_format = "fallback", -- Use LSP if no Conform formatter is found
-		},
+		-- format_on_save = {
+		-- 	timeout_ms = 500,
+		-- 	lsp_format = "fallback", -- Use LSP if no Conform formatter is found
+		-- },
 	})
 
 	-- Set up formatexpr so that Conform can be used as an LSP formatting handler.
 	vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 	-- Optional: auto-format on save
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*",
-		callback = function(args)
-			require("conform").format({ bufnr = args.buf })
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*",
+	-- 	callback = function(args)
+	-- 		require("conform").format({ bufnr = args.buf })
+	-- 	end,
+	-- })
 end
 
 return M

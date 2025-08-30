@@ -7,15 +7,15 @@ For more information about usage, please refer to `:h dvim` in neovim with my co
 
 1. install neovim 0.9+
 
-2. install Lazy
+2. install ueberzugpp, unzip, nodejs, npm
 
-3. install plugins by Lazy
+3. install plugins by `Layz sync`
 
 4. add the server to this list: [servers](https://github.com/dongdongbh/nvim.conf/blob/febfb71e3d5d4939e7fcbc62bf5a9debbc4dea8e/lua/utils/init.lua#L13)
 install language server by `:Mason`
 
 5. add treesitter parser in [list](https://github.com/dongdongbh/nvim.conf/blob/febfb71e3d5d4939e7fcbc62bf5a9debbc4dea8e/lua/user/treesitter.lua#L23), 
-install treesitter for programe languages by `:TSInstall all`
+install treesitter for programe languages by `:TSInstall`
 
 6. add patch fonts on [Nerd Font compatible font](https://github.com/ryanoasis/nerd-fonts#font-installation)
 

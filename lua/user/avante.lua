@@ -4,13 +4,15 @@ local M = {
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or false to update to the latest code changes.
   opts = {
-    -- Add your options here. For example:
     provider = "copilotclaude",
-    vendors = {
+    providers = { -- 1. 'vendors' has been renamed to 'providers'
       copilotclaude = {
-        __inherited_from = "copilot",
-        model = "claude-3.7-sonnet",
-        max_tokens = 4096,
+        __inherited_from = "copilot", -- Plugin-specific settings like this stay here
+        -- 2. API request parameters are moved into the sub-table below
+        extra_request_body = {
+          model = "claude-3.7-sonnet",
+          max_tokens = 4096,
+        },
       },
     },
     -- provider = "openai",

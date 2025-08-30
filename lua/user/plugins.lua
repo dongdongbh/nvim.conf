@@ -33,15 +33,6 @@ return {
     event = "Bufenter",
   },
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    event = "Bufenter",
-    build = 'make',
-    lazy = false,
-    init = function()
-      require('telescope').load_extension('fzf')
-    end,
-  },
-  {
     "echasnovski/mini.nvim",
     event = "VeryLazy",
   },

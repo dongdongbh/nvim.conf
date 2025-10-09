@@ -91,6 +91,17 @@ function M.config()
     return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
   end
 
+  local function sidekick_jump_or_apply()
+    local ok, sidekick = pcall(require, "sidekick")
+    if not ok or type(sidekick.nes_jump_or_apply) ~= "function" then
+      return false
+    end
+    local success, handled = pcall(function()
+      return sidekick.nes_jump_or_apply()
+    end)
+    return success and handled
+  end
+
   cmp.setup {
     snippet = {
       expand = function(args)
@@ -111,7 +122,9 @@ function M.config()
       -- Set `select` to `false` to only confirm explicitly selected items.
       ["<CR>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace },
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() and has_words_before() then
+        if sidekick_jump_or_apply() then
+          return
+        elseif cmp.visible() and has_words_before() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Replace })
         elseif luasnip.expandable() then
           luasnip.expand()

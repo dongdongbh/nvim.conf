@@ -3,7 +3,7 @@ return {
     "yetone/avante.nvim",
     -- Load on command or key press for best performance
     cmd = { "Avante", "AvanteAsk", "AvanteEdit", "AvanteRefresh" },
-    enable = false,
+    enabled = false, -- disabled: plugin currently buggy
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",

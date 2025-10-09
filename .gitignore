@@ -45,3 +45,4 @@ lazy-lock.json
 plugin/packer_compiled.lua
 java-debug/
 vscode-java-test/
+.aider*

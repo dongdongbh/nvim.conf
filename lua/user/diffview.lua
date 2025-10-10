@@ -3,12 +3,13 @@ local M = { "sindrets/diffview.nvim",
   cmd = "DiffviewOpen",
 }
 function M.config()
+  local has_icons = package.loaded["mini.icons"] ~= nil
   local actions = require("diffview.actions")
   require("diffview").setup({
     diff_binaries = false, -- Show diffs for binaries
     enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
     git_cmd = { "git" }, -- The git executable followed by default args.
-    use_icons = true, -- Requires nvim-web-devicons
+    use_icons = has_icons,
     watch_index = true, -- Update views and index buffers when the git index changes.
     icons = { -- Only applies when use_icons is true.
       folder_closed = "",

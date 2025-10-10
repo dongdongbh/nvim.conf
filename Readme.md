@@ -30,3 +30,26 @@ fc-list | grep "<name-of-font>"
 
 8. check health by `:checkhealth`
 
+## AI-assisted workflow
+
+This config ships with several complementary AI helpers:
+
+- **sidekick.nvim** – drives Copilot “Next Edit Suggestions” and hosts an AI CLI
+  terminal. Use `<leader>aa` to open the terminal, `<leader>ap` for the prompt
+  picker, and `<Tab>` (in Insert mode) to jump or apply NES edits before
+  falling back to cmp completions.
+- **copilot.lua** – keeps the Copilot LSP running in the background. Inline
+  ghost text is intentionally disabled (`suggestion.enabled = false`) so sidekick
+  and cmp own the completion UX. Run `:Copilot auth` once per machine, and
+  `:Copilot disable` if you want to pause Copilot entirely.
+- **copilot-cmp** – exposes Copilot completions through `nvim-cmp`. They appear
+  in the completion menu with the Copilot icon and respect the existing `<CR>`
+  / `<Tab>` bindings.
+- **mcphub.nvim** – optional command `:MCPHub` to launch a model-context-protocol
+  hub for local/remote AI backends. Start it when you need MCP routing; it stays
+  out of the way otherwise.
+
+If you ever see overlapping behaviour (multiple tools expanding a `<Tab>` or
+opening a chat buffer), prefer sidekick’s bindings and disable the specific
+plugin for that buffer (`:Sidekick nes disable`, `:Copilot disable`) to keep the
+workflow predictable.

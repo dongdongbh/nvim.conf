@@ -1,3 +1,4 @@
+require "utils.compat"
 require "options"
 require "keymaps"
 require "Lazy"

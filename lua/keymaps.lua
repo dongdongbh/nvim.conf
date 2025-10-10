@@ -143,13 +143,8 @@ keymap("n", "]<space>", ':<C-u>lua require("utils.addlines").add_blank_line("bel
 -- Plugins --
 
 -- vim-easy-align
-keymap("x", "ga", ":EasyAlign<CR>", opts)
-keymap("n", "ga", ":EasyAlign<CR>", opts)
+-- Interactive alignment handled by mini.align default mappings (ga/gA)
 
--- ranger with Rnvimr
-keymap("t", "<M-i>", "<C-\\><C-n>:RnvimrResize<CR>", opts)
-keymap("n", "<M-o>", ":RnvimrToggle<CR>", opts)
-keymap("t", "<M-o>", "<C-\\><C-n>:RnvimrToggle<CR>", opts)
 
 -- source current lua file
 keymap("n", "<leader>r", ":luafile %<CR>", opts)
@@ -162,15 +157,6 @@ keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 -- toggleterm
 keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
 keymap("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", opts)
-
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fr", ":Telescope neoclip<CR>", opts)
-keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
 
 -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
@@ -194,10 +180,6 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opt
 keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
 keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
 
--- avoid leap conflict with surround S in visual mode
-keymap("v", "-", "<Plug>(leap-forward)", opts)
-keymap("v", "_", "<Plug>(leap-backward)", opts)
-
 -- harpoon marker jump
 keymap("n", "<M-h>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
 keymap("n", "<M-l>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
@@ -205,6 +187,3 @@ keymap("n", "<M-k>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
 keymap("n", "<M-j>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
 keymap("n", "<M-a>", "<cmd>:lua require('harpoon.mark').add_file()<cr>", opts)
 keymap("n", "<M-m>", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
-
--- Oil file manager
-keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })

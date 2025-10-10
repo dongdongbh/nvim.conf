@@ -11,40 +11,23 @@ version: 0.1
 
 * Plugins
 
-** surround
-   {https://github.com/tpope/vim-surround}[surround]
-   
-   `ds` remove surround
-   
-   `cs` change surround
-   
-   `ys` add surround
-   
-   `yss` add surround to entire line
-   
-   in visual select mode, use `S` + surround symbols
-   
-** Comment
-   {https://github.com/numToStr/Comment.nvim}[Comment]
-   
-   - NORMAL mode
-   
-   @code help
-   `gcc` - Toggles the current line using linewise comment
-   `gbc` - Toggles the current line using blockwise comment
-   `[count]gcc` - Toggles the number of line given as a prefix-count using linewise
-   `[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
-   `gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
-   `gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
-   @end
-   
-   - VISUAL mode
-   
-   @code help
-   `gc` - Toggles the region using linewise comment
-   `gb` - Toggles the region using blockwise comment
-   @end
-   
+** mini.surround
+   {https://github.com/echasnovski/mini.nvim#minisurround}[mini.surround]
+
+   Replacement for the old vim-surround workflow. The familiar bindings still work:
+   - `ys{motion}{char}` add a surround
+   - `yss{char}` add surround to the whole line
+   - `ds{char}` delete a surround
+   - `cs{old}{new}` change surround
+   In Visual mode press `S` followed by the surround character.
+
+** mini.comment
+   {https://github.com/echasnovski/mini.nvim#minicomment}[mini.comment]
+
+   Inline replacement for Comment.nvim. Use `gcc` to toggle the current line,
+   `gc{motion}` for regions, and Visual `gc`/`gb` for linewise or blockwise toggles.
+   Counts such as `3gcc` work as expected.
+
 ** toggleterm
    {https://github.com/akinsho/toggleterm.nvim}[toggleterm]
    
@@ -54,22 +37,22 @@ version: 0.1
    keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
    @end
    
-** NvimTree
-   {https://github.com/nvim-tree/nvim-tree.lua}[NvimTree]
-   
+** oil.nvim
+   {https://github.com/stevearc/oil.nvim}[oil.nvim]
+
    @code lua
-   keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", opts)
-   keymap("n", "<leader>E", ":tabe <C-R>=expand('%:p:h') . '/' <CR>", opts)
-   keymap("n", "<leader>.", ":lcd %:p:h", opts)
+   keymap("n", "<leader>o", ":Oil<CR>", opts)
    @end
    
-** vim-easy-align
-   {https://github.com/junegunn/vim-easy-align}[vim-easy-align]
-   
-   @code lua
-   keymap("x", "ga", ":EasyAlign<CR>", opts)
-   keymap("n", "ga", ":EasyAlign<CR>", opts)
-   @end
+** mini.align
+   {https://github.com/echasnovski/mini.nvim#minialign}[mini.align]
+
+   Successor to vim-easy-align. Start with `ga` (or `gA` for live preview) after
+   selecting text. Useful modifiers:
+   - `s` enter a split pattern
+   - `j` pick justification (left/center/right/none)
+   - `m` change the merge delimiter
+   Finish with `<CR>` to accept or `<Esc>` to cancel.
    
 ** nvim-cmp
    {https://github.com/hrsh7th/nvim-cmp}[nvim-cmp]
@@ -80,15 +63,19 @@ version: 0.1
    keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
    @end
    
-** leap.vim
-   {https://github.com/ggandor/leap.nvim}[leap.vim]
-   
-   a fast search plugin, similar to sneak.vim, easy motion.
-   
-   Initiate the search in the forward (s) or backward (S) direction,
-   or in the other windows (gs).
-   
-   `cl` is equivalent to `s`, and `cc` is equivalent to `S`
+** mini.jump2d
+   {https://github.com/echasnovski/mini.nvim#minijump2d}[mini.jump2d]
+
+   Replaces leap.nvim for quick navigation. Press `s` and the next two characters
+   to jump anywhere in view; matches receive unobtrusive labels so you can select
+   with a single keystroke.
+
+** mini.statusline & starter
+   {https://github.com/echasnovski/mini.nvim#ministatusline}[statusline],
+   {https://github.com/echasnovski/mini.nvim#ministarter}[starter]
+
+   Lightweight UI defaults: the statusline shows mode/branch/diagnostics without
+   Lualine, and the starter buffer provides a recent-files dashboard on launch.
    
 ** telescope.nvim
    {https://github.com/nvim-telescope/telescope.nvim}[telescope.nvim]

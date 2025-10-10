@@ -8,7 +8,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      "nvim-web-devicons",
       "zbirenbaum/copilot.lua",
       -- UI and UX plugins
       "stevearc/dressing.nvim",         -- Recommended for input UI

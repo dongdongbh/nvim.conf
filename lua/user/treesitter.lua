@@ -6,9 +6,6 @@ local M = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			event = "VeryLazy",
 		},
-		{
-			"nvim-tree/nvim-web-devicons",
-		},
 	},
 }
 

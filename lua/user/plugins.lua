@@ -4,18 +4,9 @@ return {
     event = "Bufenter",
   },
   {
-    "tpope/vim-surround",
-    event = "Bufenter",
-  },
-  {
     "tpope/vim-abolish",
     event = "Bufenter",
   },
-  {
-    "rrethy/vim-hexokinase",
-    build = "make hexokinase",
-    event = "VeryLazy",
-  }, -- gui color
   {
     "mbbill/undotree",
     event = "Bufenter",
@@ -28,18 +19,6 @@ return {
     "lambdalisue/suda.vim",
     cmd = { "SudaWrite", "SudaRead" },
   },
-  {
-    "junegunn/vim-easy-align",
-    event = "Bufenter",
-  },
-  {
-    "echasnovski/mini.nvim",
-    event = "VeryLazy",
-  },
-  {
-    "kevinhwang91/rnvimr",
-    event = "VeryLazy",
-  }, -- ranger support
   {
     "ThePrimeagen/harpoon",
     event = "Bufenter",

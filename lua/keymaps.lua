@@ -170,7 +170,6 @@ map("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", "Toggle terminal in file dir")
 -- keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- Lsp
-map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format with LSP")
 
 -- -- stop cmp in current buffer in 'insert' mode
 map("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", "Disable CMP buffer")

@@ -3,20 +3,14 @@ local M = {
   branch = "master",
   cmd = "Telescope",
   keys = {
-    { "<leader>ff", "<cmd>Telescope find_files<CR>" },
-    { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
-    { "<leader>fp", "<cmd>Telescope projects<CR>" },
-    { "<leader>fb", "<cmd>Telescope buffers<CR>" },
-    { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
-    { "<leader>fr", "<cmd>Telescope neoclip<CR>" },
-    { "<leader>fc", "<cmd>Cheatsheet<CR>" },
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Telescope files" },
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Telescope live grep" },
+    { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Telescope buffers" },
+    { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Telescope help tags" },
+    { "<leader>fr", "<cmd>Telescope neoclip<CR>", desc = "Telescope neoclip" },
+    { "<leader>fc", "<cmd>Cheatsheet<CR>", desc = "Open Cheatsheet" },
   },
-  dependencies = {
-    {
-      "ahmedkhalf/project.nvim",
-      opts = {},
-    },
-  },
+  dependencies = {},
 }
 
 function M.opts()
@@ -42,7 +36,6 @@ end
 function M.config(_, opts)
   local telescope = require "telescope"
   telescope.setup(opts)
-  pcall(telescope.load_extension, "projects")
 end
 
 return M

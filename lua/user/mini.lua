@@ -53,33 +53,7 @@ function M.config()
     },
   })
 
-  local starter = require("mini.starter")
-  starter.setup({
-    evaluate_single = true,
-    header = "Welcome back",
-    items = {
-      starter.sections.recent_files(5, false),
-      starter.sections.telescope(),
-      {
-        name = "New file",
-        action = "ene | startinsert",
-        section = "Actions",
-      },
-      {
-        name = "Config",
-        action = "e $MYVIMRC",
-        section = "Actions",
-      },
-      {
-        name = "Quit",
-        action = "qa",
-        section = "Actions",
-      },
-    },
-    footer = function()
-      return os.date("Today is %A, %B %d")
-    end,
-  })
+  -- mini.starter intentionally disabled (Alpha handles start screen)
 
   local miniclue = require("mini.clue")
 
@@ -104,7 +78,10 @@ function M.config()
       miniclue.gen_clues.registers(),
       miniclue.gen_clues.windows(),
       miniclue.gen_clues.z(),
-      { mode = "n", keys = "<Leader>", desc = "+leader" },
+      { mode = "n", keys = "<Leader>l", desc = "+lsp" },
+      { mode = "n", keys = "<Leader>o", desc = "+orgmode" },
+      { mode = "n", keys = "<Leader>f", desc = "+telescope" },
+      { mode = "n", keys = "<Leader>a", desc = "+sidekick" },
     },
     window = {
       delay = 50, -- Set a small delay for a smoother feel

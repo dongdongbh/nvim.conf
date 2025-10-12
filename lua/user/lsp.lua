@@ -1,6 +1,6 @@
 local M = {
   "neovim/nvim-lspconfig",
-  lazy = true,
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
       "hrsh7th/cmp-nvim-lsp",
@@ -9,45 +9,80 @@ local M = {
 }
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
+
 function M.config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+  local base_capabilities = vim.lsp.protocol.make_client_capabilities()
+  base_capabilities.textDocument.completion.completionItem.snippetSupport = true
+  local capabilities = cmp_nvim_lsp.default_capabilities(base_capabilities)
 
   local function lsp_keymaps(bufnr)
-    local function map(mode, lhs, rhs, desc)
+    local mappings = {
+      { "n", "gD", vim.lsp.buf.declaration, "Go to declaration" },
+      { "n", "gd", vim.lsp.buf.definition, "Go to definition" },
+      { "n", "K", vim.lsp.buf.hover, "Hover docs" },
+      { "n", "gI", vim.lsp.buf.implementation, "Go to implementation" },
+      { "n", "gr", vim.lsp.buf.references, "Find references" },
+      { "n", "gl", vim.diagnostic.open_float, "Line diagnostics" },
+      { "n", "<leader>li", "<cmd>LspInfo<CR>", "LSP info" },
+      { "n", "<leader>lI", "<cmd>Mason<CR>", "Open Mason" },
+      { "n", "<leader>la", vim.lsp.buf.code_action, "Code action" },
+      {
+        "n",
+        "<leader>lf",
+        function()
+          vim.lsp.buf.format({ async = true })
+        end,
+        "Format with LSP",
+      },
+      {
+        "n",
+        "<leader>lj",
+        function()
+          vim.diagnostic.goto_next({ buffer = bufnr })
+        end,
+        "Next diagnostic",
+      },
+      {
+        "n",
+        "<leader>lk",
+        function()
+          vim.diagnostic.goto_prev({ buffer = bufnr })
+        end,
+        "Prev diagnostic",
+      },
+      { "n", "<leader>lr", vim.lsp.buf.rename, "Rename symbol" },
+      { "n", "<leader>ls", vim.lsp.buf.signature_help, "Signature help" },
+      {
+        "n",
+        "<leader>lq",
+        function()
+          vim.diagnostic.setloclist({ open = false })
+        end,
+        "Diagnostics loclist",
+      },
+    }
+
+    local ok_clue, miniclue = pcall(require, "mini.clue")
+
+    for _, map_def in ipairs(mappings) do
+      local mode, lhs, rhs, desc = unpack(map_def)
       vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
+      if ok_clue and miniclue.set_mapping_desc then
+        miniclue.set_mapping_desc(mode, lhs, desc)
+      end
     end
 
-    map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-    map("n", "gd", vim.lsp.buf.definition, "Go to definition")
-    map("n", "K", vim.lsp.buf.hover, "Hover docs")
-    map("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
-    map("n", "gr", vim.lsp.buf.references, "Find references")
-    map("n", "gl", vim.diagnostic.open_float, "Line diagnostics")
-    map("n", "<leader>li", "<cmd>LspInfo<CR>", "LSP info")
-    map("n", "<leader>lI", "<cmd>Mason<CR>", "Open Mason")
-    map("n", "<leader>la", vim.lsp.buf.code_action, "Code action")
-    map("n", "<leader>lj", function()
-      vim.diagnostic.goto_next({ buffer = bufnr })
-    end, "Next diagnostic")
-    map("n", "<leader>lk", function()
-      vim.diagnostic.goto_prev({ buffer = bufnr })
-    end, "Prev diagnostic")
-    map("n", "<leader>lr", vim.lsp.buf.rename, "Rename symbol")
-    map("n", "<leader>ls", vim.lsp.buf.signature_help, "Signature help")
-    map("n", "<leader>lq", function()
-      vim.diagnostic.setloclist({ open = false })
-    end, "Diagnostics loclist")
+    if ok_clue and miniclue.ensure_buf_triggers then
+      miniclue.ensure_buf_triggers(bufnr)
+    end
   end
 
-  local lspconfig = require "lspconfig"
   local on_attach = function(client, bufnr)
     if client.name == "tsserver" then
       client.server_capabilities.documentFormattingProvider = false
     end
 
-    if client.name == "sumneko_lua" then
+    if client.name == "sumneko_lua" or client.name == "lua_ls" then
       client.server_capabilities.documentFormattingProvider = false
     end
 
@@ -55,20 +90,28 @@ function M.config()
     -- require("illuminate").on_attach(client)
   end
 
-  for _, server in pairs(require("utils").servers) do
-    Opts = {
+  local servers = require("utils").servers
+
+  for _, entry in ipairs(servers) do
+    local server = vim.split(entry, "@")[1]
+
+    local opts = {
       on_attach = on_attach,
       capabilities = capabilities,
     }
 
-    server = vim.split(server, "@")[1]
-
-    local require_ok, conf_opts = pcall(require, "settings." .. server)
-    if require_ok then
-      Opts = vim.tbl_deep_extend("force", conf_opts, Opts)
+    local ok_settings, server_opts = pcall(require, "settings." .. server)
+    if ok_settings then
+      opts = vim.tbl_deep_extend("force", opts, server_opts)
     end
 
-    lspconfig[server].setup(Opts)
+    vim.lsp.config(server, opts)
+    local ok_enable, err = pcall(vim.lsp.enable, server)
+    if not ok_enable then
+      vim.notify(string.format("Failed to enable LSP server %s: %s", server, err), vim.log.levels.WARN, {
+        title = "lsp",
+      })
+    end
   end
   local signs = {
     { name = "DiagnosticSignError", text = "" },

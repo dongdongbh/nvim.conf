@@ -82,19 +82,21 @@ function M.config()
   })
 
   local miniclue = require("mini.clue")
+
+  local triggers = {}
+
+  for _, key in ipairs({ '<Leader>', 'g', '[', ']', 'z', '"', "'", '`' }) do
+    table.insert(triggers, { mode = 'n', keys = key })
+    table.insert(triggers, { mode = 'x', keys = key })
+  end
+
+  table.insert(triggers, { mode = 'n', keys = '<C-w>' })
+  table.insert(triggers, { mode = 'i', keys = '<C-x>' })
+  table.insert(triggers, { mode = 'c', keys = '<C-r>' })
+
+  -- Pass the fully built table to the setup function
   miniclue.setup({
-    triggers = {
-      { mode = "n", keys = "<Leader>" },
-      { mode = "x", keys = "<Leader>" },
-      { mode = "n", keys = "g" },
-      { mode = "x", keys = "g" },
-      { mode = "n", keys = "[" },
-      { mode = "x", keys = "[" },
-      { mode = "n", keys = "]" },
-      { mode = "x", keys = "]" },
-      { mode = "n", keys = "z" },
-      { mode = "x", keys = "z" },
-    },
+    triggers = triggers,
     clues = {
       miniclue.gen_clues.builtin_completion(),
       miniclue.gen_clues.g(),
@@ -105,9 +107,12 @@ function M.config()
       { mode = "n", keys = "<Leader>", desc = "+leader" },
     },
     window = {
-      delay = 0,
+      delay = 50, -- Set a small delay for a smoother feel
       config = {
-        width = "auto",
+        width = 'auto',
+        border = 'rounded',
+        title = 'mini.clue',
+        title_pos = 'center',
       },
     },
   })

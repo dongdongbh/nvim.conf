@@ -393,210 +393,116 @@ version: 0.1
 
 ** keymap
 
-   @code lua
-   -- Modes
-   --   normal_mode = "n",
-   --   insert_mode = "i",
-   --   visual_mode = "v",
-   --   visual_block_mode = "x",
-   --   term_mode = "t",
-   --   command_mode = "c",
+   Leader is `,` and local leader is `<Space>`. Mini.Clue surfaces the short descriptions below when you start a mapping prefix.
 
-   -- Normal --
-   -- force not use arrow keys
-   keymap("n", "<Up>", "<NOP>", opts)
-   keymap("n", "<Down>", "<NOP>", opts)
-   keymap("n", "<Left>", "<NOP>", opts)
-   keymap("n", "<Right>", "<NOP>", opts)
+*** Navigation
 
-   keymap("v", "<Up>", "<NOP>", opts)
-   keymap("v", "<Down>", "<NOP>", opts)
-   keymap("v", "<Left>", "<NOP>", opts)
-   keymap("v", "<Right>", "<NOP>", opts)
+   - `n` / `N` – repeat search while keeping the match centered.
+   - `<C-u>` / `<C-d>` – half-page scroll with the cursor recentered.
+   - `J` (normal) – join lines without moving the cursor.
+   - `<C-j>` (normal) – insert a blank line below and stay in normal mode.
 
-   -- Bring search results to midscreen
-   keymap("n", "n", "nzzzv", opts)
-   keymap("n", "N", "Nzzzv", opts)
+*** Command-line editing
 
-   keymap("n", "<C-u>", "<C-u>zz", opts)
-   keymap("n", "<C-d>", "<C-d>zz", opts)
-   keymap("n", "J", "mzJ`z", opts) --Join lines with cursor stationary
+   - `<C-a>` / `<C-e>` in command mode jump to the start/end of the command-line.
 
-   -- conflict with tmux navigate plugin
-   -- keymap("n", "<C-j>", ":cprev<CR>zz", opts)
-   -- keymap("n", "<C-k>", ":cnext<CR>zz", opts)
+*** Search & replace helpers
 
-   -- break line by ctrl + m
-   keymap("n", "<C-m>", "i<CR><ESC>", opts)
-   -- keymap("n", "<C-j>", "i<CR><ESC>", opts)
+   - `c*` / `c#` – change the next/previous match of the word under the cursor.
 
-   -- command mode navigate like bash
-   keymap("c", "<C-a>", ":<Home>", opts)
-   keymap("c", "<C-e>", ":<End>", opts)
+*** Window management
 
-   -- change the word under cursor in down or up direction
-   keymap("n", "c*", "*''cgn", opts)
-   keymap("n", "c#", "#''cgN", opts)
+   - `<C-Up>` / `<C-Down>` – shrink or grow the window height.
+   - `<C-Left>` / `<C-Right>` – shrink or grow the window width.
+   - `<S-l>` / `<S-h>` – cycle forward/backward through listed buffers.
 
-   -- Resize with arrows
-   keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-   keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-   keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-   keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+*** Highlight & buffer control
 
-   -- Navigate buffers
-   keymap("n", "<S-l>", ":bnext<CR>", opts)
-   keymap("n", "<S-h>", ":bprevious<CR>", opts)
+   - `<leader>h` – clear `hlsearch`.
+   - `<S-q>` – force-delete the current buffer with `Bdelete`.
 
-   -- Clear highlights
-   keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+*** Pasting and registers
 
-   -- Close buffers
-   keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+   - `p` in visual mode – paste without yanking the replaced text.
+   - `<Leader>p` in visual mode – same paste-replace via the void register.
+   - `<Leader>D` in normal/visual mode – delete into the void register.
+   - `Y` – yank to end of line.
+   - `<Leader>m` / `<Leader>M` – paste from registers `m` / `M`.
+   - `<Leader>0` – paste the last yank (`"0` register).
+   - `<Leader>y` / `<Leader>Y` – copy selection or line to the system clipboard.
 
-   -- Better paste
-   keymap("v", "p", '"_dP', opts)
-   keymap("x", "<Leader>p", '"_dP', opts)
+*** Insert mode
 
-   -- delete to blank hole
-   keymap("n", "<Leader>d", '"_d', opts)
-   keymap("v", "<Leader>d", '"_d', opts)
+   - `<C-s>` – fix the last misspelled word and return to insert mode.
+   - `<C-x><C-t>` – disable `nvim-cmp` completion for the current buffer.
+   - `<C-x><C-o>` – re-enable `nvim-cmp` for the current buffer.
 
-   -- Y to yank to line end
-   keymap("n", "Y", "y$", opts)
+*** Sorting & motion
 
-   -- Set key-mapping for dealing with two alphabetical registers easily
-   -- in visual mode !!!
-   keymap("v", "<Leader>a", '"ay', opts)
-   keymap("v", "<Leader>A", '"Ay', opts)
-   --map("v", "<Leader>x", '"xy', opts)
-   --map("v", "<Leader>X", '"Xy', opts)
+   - `<leader>s` / `<leader>S` in visual mode – sort selections (unique / case-insensitive).
+   - `<leader>s` / `<leader>S` in normal mode – sort the current paragraph.
+   - `J` / `K` in visual block mode – move selections down/up.
+   - `Q` (normal) / `Q` (visual) – replay macro `q` (buffer wide / per line).
 
-   keymap("n", "<Leader>a", '"ap', opts)
-   keymap("n", "<Leader>A", '"Ap', opts)
-   -- paste last yanked
-   keymap("n", "<Leader>0", '"0p', opts)
+*** Diagnostics & formatting
 
-   -- Set a key-mapping for copy to the system clipboard
-   keymap("v", "<Leader>y", '"+y', opts)
-   keymap("n", "<Leader>Y", '"+Y', opts)
-   --map("n", "<Leader>p", '"+p', opts)
+   - `<leader>j` / `<leader>k` – jump through the location list.
+   - `g=` – reindent the entire buffer.
+   - `<leader>lf` – format the current buffer with LSP (async).
 
+*** Files & working directory
 
-   -- Insert --
-   -- I remap Cap key to esc, so dont need this
-   -- Press jk fast to enter
-   -- keymap("i", "jk", "<ESC>", opts)
+   - `<leader>e` – edit a file from the current buffer’s directory.
+   - `<leader>E` – open that directory in a new tab and prompt for a file.
+   - `<leader>.` – set local working directory to the current file’s folder.
+   - `[<Space>` / `]<Space>` – insert blank lines above or below the cursor.
+   - `<leader>r` – source the current Lua file.
+   - `<leader>u` – toggle Undotree.
 
-   -- Fix last spelling error (repeat.
-   keymap("i", "<C-s>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
+*** Terminal ergonomics
 
-   -- Visual --
-   -- Stay in indent mode
-   keymap("v", "<", "<gv", opts)
-   keymap("v", ">", ">gv", opts)
+   - `<leader>$` – open a horizontal terminal in the buffer directory.
+   - `<leader>!` – open a floating terminal rooted in the file’s directory.
+   - In terminal buffers: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>` – exit to normal mode and move focus left/down/up/right.
 
-   -- sort lines
-   keymap("v", "<leader>s", ":sort u", opts)
-   keymap("v", "<leader>S", ":sort iu", opts)
-   keymap("n", "<leader>s", "vip:sort u", opts)
-   keymap("n", "<leader>S", "vip:sort iu", opts)
+*** Debugging (nvim-dap)
 
-   -- Move text up and down
-   keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-   keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+   - `<leader>db` – toggle breakpoint.
+   - `<leader>dc` / `<leader>dt` – continue or terminate the debug session.
+   - `<leader>di` / `<leader>do` / `<leader>dO` – step into/over/out.
+   - `<leader>dr` – toggle the DAP REPL.
+   - `<leader>dl` – run the last debug configuration.
+   - `<leader>du` – toggle the DAP UI.
 
-   -- fast macro q
-   keymap("n", "Q", "@q", opts)
-   keymap("v", "Q", ":norm @q<cr>", opts)
+*** Harpoon
 
-   -- go next or previous error
-   keymap("n", "<leader>j", ":lprev<CR>zz", opts)
-   keymap("n", "<leader>k", ":lnext<CR>zz", opts)
+   - `<M-a>` – add the current file to Harpoon.
+   - `<M-m>` – toggle Harpoon’s quick menu.
+   - `<M-h>` / `<M-l>` – jump to files 1 and 2.
+   - `<M-j>` / `<M-k>` – cycle prev/next within Harpoon.
 
+*** LSP (configured per-buffer on attach)
 
-   -- Reformat whole file
-   keymap("n", "g=", "gg=G''", opts)
+   - `gD`, `gd`, `gI`, `gr` – declaration, definition, implementation, references.
+   - `K` – hover documentation.
+   - `gl` – line diagnostics float.
+   - `<leader>li` / `<leader>lI` – open `:LspInfo` or `:Mason`.
+   - `<leader>la` – code action.
+   - `<leader>lj` / `<leader>lk` – next/previous diagnostic.
+   - `<leader>lr` – rename symbol.
+   - `<leader>ls` – signature help.
+   - `<leader>lq` – populate the location list with diagnostics.
 
-   keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", opts)
-   keymap("n", "<leader>E", ":tabe <C-R>=expand('%:p:h') . '/' <CR>", opts)
-   keymap("n", "<leader>.", ":lcd %:p:h", opts)
+*** Misc plugins
 
-   -- save with sudo in command_mode
-   -- keymap("c", "W!!", ":w !sudo tee % >/dev/null<Cr>:e!<Cr>", opts)
-
-   -- repeat
-   -- Add [count] blank lines above/below cursor and make it repeatable
-   --map("n", "]<Space>", ':<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>', opts)
-   --map("n", "[<Space>", ':<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>', opts)
-   vim.cmd([[
-   nnoremap <silent> <Plug>AddBlackLineUp :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "\']+1"<CR>=:silent! call repeat#set("\<Plug>AddBlackLineUp", v:count)<CR>
-   nmap [<Space> <Plug>AddBlackLineUp  
-   nnoremap <silent> <Plug>AddBlackLineDown :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "\'[-1"<CR>=:silent! call repeat#set("\<Plug>AddBlackLineDown", v:count)<CR>
-   nmap ]<Space> <Plug>AddBlackLineDown  
-]])
-
-   -- Plugins --
-
-   -- mini.align uses built-in mappings (ga/gA)
-   -- mini.jump2d: press `s` + hint characters to hop within the window
-
-   -- oil.nvim
-   keymap("n", "<leader>o", ":Oil<CR>", opts)
-
-   -- source current lua file
-   keymap("n", "<leader>r", ":luafile %<CR>", opts)
-   -- Undo tree
-   keymap("n", "<leader>u", ":UndotreeToggle<CR>", opts)
-
-   -- NvimTree
-   -- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
-   -- toggleterm
-   keymap("n", "<leader>$", ":ToggleTerm size=15 dir=%:p direction=horizontal<CR>", opts)
-   keymap("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", opts)
-
-   -- Telescope
-   keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-   keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-   keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-   keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-   keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-   keymap("n", "<leader>fr", ":Telescope neoclip<CR>", opts)
-   keymap("n", "<leader>fc", ":Cheatsheet<CR>", opts)
-
-   -- Git
-   keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-
-   -- Comment handled by mini.comment (gc, gcc, gca motions)
-
-   -- DAP
-   keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-   keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-   keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-   keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-   keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
-   keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
-   keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
-   keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
-   keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
-
-   -- Lsp
-   keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-
-   -- -- stop cmp in current buffer in 'insert' mode
-   keymap("i", "<C-x><C-t>", "<Cmd>lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
-   keymap("i", "<C-x><C-o>", "<Cmd>lua require('cmp').setup.buffer { enabled = ture }<CR>", opts)
-
-   -- harpoon marker jump
-   keymap("n", "<M-h>", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
-   keymap("n", "<M-l>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
-   keymap("n", "<M-k>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", opts)
-   keymap("n", "<M-j>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", opts)
-   keymap("n", "<M-a>", "<cmd>:lua require('harpoon.mark').add_file()<cr>", opts)
-   keymap("n", "<M-m>", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
-
-   @end
+   - `<leader>$` / `<leader>!` – ToggleTerm helpers (see Terminal ergonomics above).
+   - `<leader>ff` / `<leader>fg` – Telescope find files or live grep.
+   - `<leader>fb` / `<leader>fh` – Telescope buffers or help tags.
+   - `<leader>fp` – Telescope projects picker.
+   - `<leader>fr` – Telescope neoclip history.
+   - `<leader>fc` – open Cheatsheet.
+   - `<leader>gg` – toggle Lazygit terminal.
+   - `<leader>o` – open Oil for directory editing.
 
 ** LSP-setting
    LSP is one of most important feature of neovim. Here I list some method to use 

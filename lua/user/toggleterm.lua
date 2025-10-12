@@ -34,15 +34,18 @@ function M.config()
 		},
 	})
 
-	function _G.set_terminal_keymaps()
-		local opts = { noremap = true }
-		vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-		vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-		vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-		vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+	local function set_terminal_keymaps(ev)
+		local opts = { buffer = ev.buf, silent = true }
+		vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-W>h]], vim.tbl_extend("force", opts, { desc = "Terminal focus left" }))
+		vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-W>j]], vim.tbl_extend("force", opts, { desc = "Terminal focus down" }))
+		vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], vim.tbl_extend("force", opts, { desc = "Terminal focus up" }))
+		vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-W>l]], vim.tbl_extend("force", opts, { desc = "Terminal focus right" }))
 	end
 
-	vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+	vim.api.nvim_create_autocmd("TermOpen", {
+		pattern = "term://*",
+		callback = set_terminal_keymaps,
+	})
 end
 
 return M

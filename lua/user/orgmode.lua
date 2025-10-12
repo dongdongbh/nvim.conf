@@ -32,39 +32,8 @@ function M.config()
   vim.api.nvim_create_autocmd('FileType', {
     pattern = 'org',
     callback = function(event)
-      -- Override mini.ai operator-pending mappings so Org-specific ones like `cit` take precedence
-      local function passthrough(keys)
-        return function()
-          return keys
-        end
-      end
-
-      vim.keymap.set(
-        'o',
-        'i',
-        passthrough('i'),
-        { desc = 'Use default inner textobject', buffer = event.buf, expr = true, silent = true, nowait = true }
-      )
-      vim.keymap.set(
-        'o',
-        'a',
-        passthrough('a'),
-        { desc = 'Use default around textobject', buffer = event.buf, expr = true, silent = true, nowait = true }
-      )
-
-      vim.keymap.set(
-        'n',
-        'cit',
-        "<cmd>lua require('orgmode').action('org_mappings.todo_next_state')<CR>",
-        { desc = 'Org TODO state forward', buffer = event.buf, nowait = true, silent = true }
-      )
-
-      vim.keymap.set(
-        'n',
-        'ciT',
-        "<cmd>lua require('orgmode').action('org_mappings.todo_prev_state')<CR>",
-        { desc = 'Org TODO state backward', buffer = event.buf, nowait = true, silent = true }
-      )
+      pcall(vim.api.nvim_buf_set_var, event.buf, 'miniai_disable', true)
+      vim.b.miniai_disable = true
 
       vim.keymap.set('n', '<Leader>os', function()
         local ok, orgmode = pcall(require, 'orgmode')

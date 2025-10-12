@@ -457,22 +457,12 @@ version: 0.1
    - `<leader>.` – set local working directory to the current file’s folder.
    - `[<Space>` / `]<Space>` – insert blank lines above or below the cursor.
    - `<leader>r` – source the current Lua file.
-   - `<leader>u` – toggle Undotree.
 
 *** Terminal ergonomics
 
    - `<leader>$` – open a horizontal terminal in the buffer directory.
    - `<leader>!` – open a floating terminal rooted in the file’s directory.
    - In terminal buffers: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>` – exit to normal mode and move focus left/down/up/right.
-
-*** Debugging (nvim-dap)
-
-   - `<leader>db` – toggle breakpoint.
-   - `<leader>dc` / `<leader>dt` – continue or terminate the debug session.
-   - `<leader>di` / `<leader>do` / `<leader>dO` – step into/over/out.
-   - `<leader>dr` – toggle the DAP REPL.
-   - `<leader>dl` – run the last debug configuration.
-   - `<leader>du` – toggle the DAP UI.
 
 *** Harpoon
 
@@ -502,7 +492,6 @@ version: 0.1
    - `<leader>fr` – Telescope neoclip history.
    - `<leader>fc` – open Cheatsheet.
    - `<leader>gg` – toggle Lazygit terminal.
-   - `<leader>o` – open Oil for directory editing.
 
 ** LSP-setting
    LSP is one of most important feature of neovim. Here I list some method to use 

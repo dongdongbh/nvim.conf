@@ -37,13 +37,6 @@ version: 0.1
    keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
    @end
    
-** oil.nvim
-   {https://github.com/stevearc/oil.nvim}[oil.nvim]
-
-   @code lua
-   keymap("n", "<leader>o", ":Oil<CR>", opts)
-   @end
-   
 ** mini.align
    {https://github.com/echasnovski/mini.nvim#minialign}[mini.align]
 
@@ -135,20 +128,6 @@ version: 0.1
    keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
    keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
    @end
-   
-** null-ls
-   {https://github.com/jose-elias-alvarez/null-ls.nvim}[null-ls]
-   
-   `null-ls` is a tool to extend services for lsp, such as linter, formating, diagnose and code action tools.
-   
-   not that these tools should be installed on your computer then add them to `null-ls.lua` setting.
-   
-** undotree
-   {https://github.com/mbbill/undotree}[undotree]
-   
-   show undo tree
-   
-   map("n", "<leader>u", ":UndotreeToggle<CR>", opts)
    
 ** Neogit
   {https://github.com/TimUntersberger/neogit}[Neogit]

@@ -8,10 +8,6 @@ return {
     event = "Bufenter",
   },
   {
-    "mbbill/undotree",
-    event = "Bufenter",
-  },
-  {
     "christoomey/vim-tmux-navigator",
     event = "Bufenter",
   },

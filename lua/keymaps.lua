@@ -157,8 +157,6 @@ map("n", "]<space>", ':<C-u>lua require("utils.addlines").add_blank_line("below"
 
 -- source current lua file
 map("n", "<leader>r", ":luafile %<CR>", "Source current Lua file")
--- Undo tree
-map("n", "<leader>u", ":UndotreeToggle<CR>", "Toggle Undotree")
 
 -- NvimTree
 -- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -170,17 +168,6 @@ map("n", "<leader>!", ":ToggleTerm dir=%:p<CR>", "Toggle terminal in file dir")
 -- Comment
 -- keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 -- keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
-
--- DAP
-map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle breakpoint")
-map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", "Start or continue debug")
-map("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", "Step into")
-map("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", "Step over")
-map("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", "Step out")
-map("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle DAP REPL")
-map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", "Run last debug")
-map("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", "Toggle DAP UI")
-map("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", "Terminate debug")
 
 -- Lsp
 map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", "Format with LSP")
